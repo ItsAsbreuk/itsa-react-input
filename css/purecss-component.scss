@@ -1,0 +1,35 @@
+.pure-form {
+
+    .itsa-input-error-text {
+        right: 0.6em;
+    }
+
+    .itsa-input-help-text {
+        margin-left: calc(0.8em + 1px);
+        margin-bottom: 0.5em;
+    }
+
+    &.pure-form-stacked .itsa-input {
+        display: block;
+        margin: 0.5em 0;
+    }
+
+    &.pure-form-aligned .itsa-input {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+}
+
+@media only screen and (max-width : 480px) {
+
+    .pure-form .itsa-input {
+        margin-bottom: 0.3em;
+        display: block;
+    }
+
+    .pure-group .itsa-input {
+        margin-bottom: 0;
+    }
+
+}

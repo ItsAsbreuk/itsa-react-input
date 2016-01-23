@@ -1,0 +1,321 @@
+{
+    "project": {
+        "name": "itsa-checkbox",
+        "description": "React-Component: iOS-stylish checkbox",
+        "logo": "https://avatars0.githubusercontent.com/u/8314644?v=3&s=84",
+        "version": "0.0.1"
+    },
+    "files": {
+        "lib/component.jsx": {
+            "name": "lib/component.jsx",
+            "modules": {
+                "itsa-react-input": 1
+            },
+            "classes": {
+                "Input": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "itsa-react-input": {
+            "name": "itsa-react-input",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "Input": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "lib/component.jsx",
+            "line": 3,
+            "description": "Description here\n\n\n\n<i>Copyright (c) 2016 ItsAsbreuk - http://itsasbreuk.nl</i><br>\nNew BSD License - http://choosealicense.com/licenses/bsd-3-clause/",
+            "since": "0.0.1"
+        }
+    },
+    "classes": {
+        "Input": {
+            "name": "Input",
+            "shortname": "Input",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "itsa-react-input",
+            "namespace": "",
+            "file": "lib/component.jsx",
+            "line": 3,
+            "description": "Description here\n\n\n\n<i>Copyright (c) 2016 ItsAsbreuk - http://itsasbreuk.nl</i><br>\nNew BSD License - http://choosealicense.com/licenses/bsd-3-clause/"
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "lib/component.jsx",
+            "line": 27,
+            "description": "Whether to autofocus the Component.",
+            "itemtype": "property",
+            "name": "autoFocus",
+            "type": "Boolean",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 36,
+            "description": "The error-message that appears when the element is wrong validated.",
+            "itemtype": "property",
+            "name": "errorMsg",
+            "type": "String",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 45,
+            "description": "Whether the parent-form has been submitted.\nThis value is needed to determine if the validate-status should be set.",
+            "itemtype": "property",
+            "name": "formValidated",
+            "type": "Boolean",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 55,
+            "description": "The text that should appear when the element is wrong validated.",
+            "itemtype": "property",
+            "name": "helpText",
+            "type": "String",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 64,
+            "description": "The `id` of the element.",
+            "itemtype": "property",
+            "name": "id",
+            "type": "String",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 73,
+            "description": "The `label` for the element.",
+            "itemtype": "property",
+            "name": "label",
+            "type": "String",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 82,
+            "description": "Whether to mark the Component when successfully validated.",
+            "itemtype": "property",
+            "name": "markValidated",
+            "type": "Boolean",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 91,
+            "description": "The `name` for the element.",
+            "itemtype": "property",
+            "name": "name",
+            "type": "String",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 100,
+            "description": "The `onChange` function, which should update the `state`.",
+            "itemtype": "property",
+            "name": "onChange",
+            "type": "Function",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 109,
+            "description": "Set this value whenever the field should use a pattern",
+            "itemtype": "property",
+            "name": "pattern",
+            "type": "String",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 118,
+            "description": "The `placeholder` for the element.",
+            "itemtype": "property",
+            "name": "placeholder",
+            "type": "String",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 127,
+            "description": "The `type` of the input-element.",
+            "itemtype": "property",
+            "name": "type",
+            "type": "String",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 136,
+            "description": "The tabindex of the Component.",
+            "itemtype": "property",
+            "name": "type",
+            "type": "Number",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 145,
+            "description": "Whether the property is validated right.",
+            "itemtype": "property",
+            "name": "validated",
+            "type": "Boolean",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 154,
+            "description": "The `value` of the input-element.",
+            "itemtype": "property",
+            "name": "value",
+            "type": "String",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 164,
+            "description": "componentDidMount will call `this.activatePlaces()`;",
+            "itemtype": "method",
+            "name": "componentDidMount",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 174,
+            "description": "Gets the Component\"s internal state. Note, that the this is NOT Redux\"s state.",
+            "itemtype": "method",
+            "name": "getInitialState",
+            "return": {
+                "description": "Object the Component internal initial state"
+            },
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 187,
+            "description": "Sets the focus on the Component.",
+            "itemtype": "method",
+            "name": "focus",
+            "chainable": 1,
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 199,
+            "description": "The method that is called whenever the input-Element changes its value.\nWill update the Redux-store (signupuser.homeaddress);",
+            "itemtype": "method",
+            "name": "handleChange",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "event-payload",
+                    "type": "Object"
+                }
+            ],
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 214,
+            "description": "The method that is called whenever the input-Element gets the focus.\nIt will change its internal state, so that the css looks right and\nalso any validation-messages disappear.",
+            "itemtype": "method",
+            "name": "handleFocus",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "event-payload",
+                    "type": "Object"
+                }
+            ],
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 230,
+            "description": "The method that is called whenever the input-Element gets blurred.\nIt will change its internal state, so that the css looks right and\nalso any validation-messages appear.",
+            "itemtype": "method",
+            "name": "handleBlur",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "event-payload",
+                    "type": "Object"
+                }
+            ],
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 267,
+            "description": "React render-method --> renderes the Component.",
+            "itemtype": "method",
+            "name": "render",
+            "return": {
+                "description": "ReactComponents"
+            },
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        }
+    ],
+    "warnings": []
+}

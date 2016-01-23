@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>lib/component.jsx - itsa-checkbox</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="https://avatars0.githubusercontent.com/u/8314644?v=3&amp;s=84" title="itsa-checkbox"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.0.1</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Input.html">Input</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/itsa-react-input.html">itsa-react-input</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: lib/component.jsx</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&quot;use strict&quot;;
+
+/**
+ * Description here
+ *
+ *
+ *
+ * &lt;i&gt;Copyright (c) 2016 ItsAsbreuk - http://itsasbreuk.nl&lt;/i&gt;&lt;br&gt;
+ * New BSD License - http://choosealicense.com/licenses/bsd-3-clause/
+ *
+ *
+ * @module itsa-react-input
+ * @class Input
+ * @since 0.0.1
+*/
+
+import React, {PropTypes} from &quot;react&quot;;
+import ReactDom from &quot;react-dom&quot;;
+
+const MAIN_CLASS = &quot;itsa-input&quot;,
+      MAIN_CLASS_PREFIX = MAIN_CLASS+&quot;-&quot;,
+      SPACED_MAIN_CLASS_PREFIX = &quot; &quot;+MAIN_CLASS_PREFIX;
+
+const Input = React.createClass({
+
+    propTypes: {
+        /**
+         * Whether to autofocus the Component.
+         *
+         * @property autoFocus
+         * @type Boolean
+         * @since 0.0.1
+        */
+        autoFocus: PropTypes.bool,
+
+        /**
+         * The error-message that appears when the element is wrong validated.
+         *
+         * @property errorMsg
+         * @type String
+         * @since 0.0.1
+        */
+        errorMsg: PropTypes.string,
+
+        /**
+         * Whether the parent-form has been submitted.
+         * This value is needed to determine if the validate-status should be set.
+         *
+         * @property formValidated
+         * @type Boolean
+         * @since 0.0.1
+        */
+        formValidated: PropTypes.bool,
+
+        /**
+         * The text that should appear when the element is wrong validated.
+         *
+         * @property helpText
+         * @type String
+         * @since 0.0.1
+        */
+        helpText: PropTypes.string,
+
+        /**
+         * The &#x60;id&#x60; of the element.
+         *
+         * @property id
+         * @type String
+         * @since 0.0.1
+        */
+        id: PropTypes.string,
+
+        /**
+         * The &#x60;label&#x60; for the element.
+         *
+         * @property label
+         * @type String
+         * @since 0.0.1
+        */
+        label: PropTypes.string,
+
+        /**
+         * Whether to mark the Component when successfully validated.
+         *
+         * @property markValidated
+         * @type Boolean
+         * @since 0.0.1
+        */
+        markValidated: PropTypes.bool,
+
+        /**
+         * The &#x60;name&#x60; for the element.
+         *
+         * @property name
+         * @type String
+         * @since 0.0.1
+        */
+        name: PropTypes.string,
+
+        /**
+         * The &#x60;onChange&#x60; function, which should update the &#x60;state&#x60;.
+         *
+         * @property onChange
+         * @type Function
+         * @since 0.0.1
+        */
+        onChange: PropTypes.func.isRequired,
+
+        /**
+         * Set this value whenever the field should use a pattern
+         *
+         * @property pattern
+         * @type String
+         * @since 0.0.1
+        */
+        pattern: PropTypes.string,
+
+        /**
+         * The &#x60;placeholder&#x60; for the element.
+         *
+         * @property placeholder
+         * @type String
+         * @since 0.0.1
+        */
+        placeholder: PropTypes.string,
+
+        /**
+         * The &#x60;type&#x60; of the input-element.
+         *
+         * @property type
+         * @type String
+         * @since 0.0.1
+        */
+        type: PropTypes.string,
+
+        /**
+         * The tabindex of the Component.
+         *
+         * @property type
+         * @type Number
+         * @since 0.0.1
+        */
+        tabIndex: PropTypes.number,
+
+        /**
+         * Whether the property is validated right.
+         *
+         * @property validated
+         * @type Boolean
+         * @since 0.0.1
+        */
+        validated: PropTypes.bool,
+
+        /**
+         * The &#x60;value&#x60; of the input-element.
+         *
+         * @property value
+         * @type String
+         * @since 0.0.1
+        */
+        value: PropTypes.string.isRequired
+    },
+
+    /**
+     * componentDidMount will call &#x60;this.activatePlaces()&#x60;;
+     *
+     * @method componentDidMount
+     * @since 0.0.1
+     */
+    componentDidMount() {
+        this.props.autoFocus &amp;&amp; this.focus();
+    },
+
+    /**
+     * Gets the Component&quot;s internal state. Note, that the this is NOT Redux&quot;s state.
+     *
+     * @method getInitialState
+     * @return Object the Component internal initial state
+     * @since 0.0.1
+     */
+    getInitialState() {
+        return {
+            focussed: !!this.props.autoFocus
+        };
+    },
+
+    /**
+     * Sets the focus on the Component.
+     *
+     * @method focus
+     * @chainable
+     * @since 0.0.1
+     */
+    focus() {
+        this.refs.input &amp;&amp; ReactDom.findDOMNode(this.refs.input).focus();
+        return this;
+    },
+
+    /**
+     * The method that is called whenever the input-Element changes its value.
+     * Will update the Redux-store (signupuser.homeaddress);
+     *
+     * @method handleChange
+     * @param e {Object} event-payload
+     * @since 0.0.1
+     */
+    handleChange(e) {
+        if (!this.props.readOnly) {
+            this.changed = true;
+            this.props.onChange(e);
+        }
+    },
+
+    /**
+     * The method that is called whenever the input-Element gets the focus.
+     * It will change its internal state, so that the css looks right and
+     * also any validation-messages disappear.
+     *
+     * @method handleFocus
+     * @param e {Object} event-payload
+     * @since 0.0.1
+     */
+    handleFocus() {
+        this.changed = false;
+        this.setState({
+            focussed: true
+        });
+    },
+
+    /**
+     * The method that is called whenever the input-Element gets blurred.
+     * It will change its internal state, so that the css looks right and
+     * also any validation-messages appear.
+     *
+     * @method handleBlur
+     * @param e {Object} event-payload
+     * @since 0.0.1
+     */
+    handleBlur() {
+        this.changed = false;
+        this.setState({
+            focussed: false
+        });
+    },
+
+    renderInputElement(inputProps) {
+        // inputElement = props.pattern ?
+        //               (&lt;MaskedInput mask={props.pattern} ref=&quot;mask&quot; {...inputProps} /&gt;) :
+        //               props.type===&quot;textarea&quot; ?
+        //                   (&lt;textarea {...inputProps} /&gt;) :
+        //                   (&lt;input {...inputProps} /&gt;);
+
+        // in case we are using &#x60;react-maskedinput&#x60;, then it doesn&quot;t accept an empty value
+        // once it already has content. This makes it impossible to emtpy.
+        // therefore we need to empty the maks by hacking it:
+/*
+        if (props.pattern) {
+            maskComponent = this.refs.mask; // only there when already rendered before
+            if (maskComponent &amp;&amp; !props.value) {
+                maskComponent.mask.setValue();
+            }
+        }
+*/
+        return (&lt;input {...inputProps} /&gt;);
+    },
+
+    /**
+     * React render-method --&gt; renderes the Component.
+     *
+     * @method render
+     * @return ReactComponents
+     * @since 0.0.1
+     */
+    render() {
+        let wrapperClass = MAIN_CLASS,
+            label, errorMsg, help, labelClass, inputProps, maskComponent;
+        const instance = this,
+            props = instance.props,
+            type = props.type || &quot;text&quot;,
+            errored = (!instance.changed &amp;&amp;
+                (props.validated===false) &amp;&amp;
+                (props.value || props.formValidated));
+
+        props.className &amp;&amp; (wrapperClass+=&quot; &quot;+props.className);
+        errored &amp;&amp; (wrapperClass+=SPACED_MAIN_CLASS_PREFIX+&quot;error&quot;);
+        instance.state.focused &amp;&amp; (wrapperClass+=SPACED_MAIN_CLASS_PREFIX+&quot;focus&quot;);
+        if (props.markValidated &amp;&amp; !errored &amp;&amp; !instance.state.focussed &amp;&amp; !instance.changed &amp;&amp; props.value &amp;&amp; props.validated) {
+            wrapperClass += SPACED_MAIN_CLASS_PREFIX+&quot;feedback-success&quot;;
+        }
+
+        if (errored &amp;&amp; props.errorMsg) {
+            errorMsg = (&lt;div className={MAIN_CLASS_PREFIX+&quot;error-text&quot;}&gt;{props.errorMsg}&lt;/div&gt;);
+        }
+
+        if (props.label) {
+            labelClass = MAIN_CLASS_PREFIX + &quot;control-label&quot;;
+            props.labelClasses &amp;&amp; (labelClass+=&quot; &quot;+props.labelClasses);
+            label = (&lt;Label className={labelClass} htmlFor={props.id} value={props.label} /&gt;);
+        }
+
+        if (props.helpText) {
+            help = (&lt;div className={MAIN_CLASS_PREFIX+&quot;help-text&quot;}&gt;{props.helpText}&lt;/div&gt;);
+        }
+
+        inputProps = {
+            className: MAIN_CLASS_PREFIX+&quot;-element&quot;,
+            id: props.id,
+            name: props.name,
+            onBlur: instance.handleBlur,
+            onChange: instance.handleChange,
+            onFocus: instance.handleFocus,
+            placeholder: props.placeholder,
+            readOnly: props.readOnly || false,
+            ref: &quot;input&quot;,
+            tabIndex: props.tabIndex || 1,
+            type: type,
+            value: props.value
+        };
+
+        return (
+            &lt;div className={wrapperClass}&gt;
+                {label}
+                &lt;div className={MAIN_CLASS_PREFIX+&quot;inputbox&quot;}&gt;
+                    {instance.renderInputElement.call(this, inputProps)}
+                    {errorMsg}
+                &lt;/div&gt;
+                {help}
+            &lt;/div&gt;
+        );
+    }
+
+});
+
+module.exports = Input;
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
