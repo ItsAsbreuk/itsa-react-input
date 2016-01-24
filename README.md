@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ItsAsbreuk/COMPONENT_NAME.svg?branch=master)](https://travis-ci.org/ItsAsbreuk/COMPONENT_NAME)
+[![Build Status](https://travis-ci.org/ItsAsbreuk/itsa-react-input.svg?branch=master)](https://travis-ci.org/ItsAsbreuk/itsa-react-input)
 
 Beautiful functional textarea-element for react.
 
