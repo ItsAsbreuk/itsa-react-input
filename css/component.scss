@@ -1,6 +1,7 @@
 $color-error-border: #FF6A6A;
 $color-error-text: #F34F4F;
 $background-color-error-text: #F9F9F9;
+$color-required-star: #FF6A6A;
 
 .itsa-input {
     position: relative;
@@ -16,8 +17,17 @@ $background-color-error-text: #F9F9F9;
     }
 }
 
+.itsa-input-required::after {
+    content: "*";
+    position: absolute;
+    font-size: 2em;
+    top: 0.2em;
+    right: 0.2em;
+    color: $color-required-star;
+}
+
 .itsa-input-feedback-success::after {
-    content: url("icon-success.svg");
+    content: url("../img/icon-success.svg");
     position: absolute;
     top: 0.5em;
     right: 0.5em;
@@ -61,4 +71,35 @@ $background-color-error-text: #F9F9F9;
     color: #999;
     font-size: 0.8em;
     margin: 0.2em 0 0.4em;
+}
+
+.itsa-input-required-msg-before,
+.itsa-input-required-msg-after {
+    position: relative;
+    margin-top: 1em;
+}
+
+.itsa-input-required-msg-before {
+    padding-left: 1em;
+}
+
+.itsa-input-required-msg-after {
+    padding-right: 1em;
+}
+
+.itsa-input-required-msg-before::before,
+.itsa-input-required-msg-after::after {
+    position: absolute;
+    content: "*";
+    font-size: 2em;
+    top: 0;
+    color: $color-required-star;
+}
+
+.itsa-input-required-msg-before::before {
+    left: 0;
+}
+
+.itsa-input-required-msg-after::after {
+    right: 0;
 }

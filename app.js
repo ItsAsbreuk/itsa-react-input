@@ -4,15 +4,22 @@ import "purecss";
 import "js-ext/lib/object";
 import "js-ext/lib/string";
 
+import "itsa-react-checkbox/css/component.scss";
+
 const React = require("react"),
     ReactDOM = require("react-dom"),
-    Input = require("./lib/component-styled.jsx");
+    Input = require("./lib/component-styled.jsx"),
+    Checkbox = require("itsa-react-checkbox");
 
+
+/*******************************************************
+ * Custom form-Component
+ *******************************************************/
 const MyForm = React.createClass({
 
     focusUnvalidated() {
         const instance = this;
-        const validated = instance.state.validated;
+        const validated = instance.props.validated;
         if (!validated.name) {
             instance.refs.name.focus();
         }
@@ -22,84 +29,50 @@ const MyForm = React.createClass({
         else if (!validated.password) {
             instance.refs.password.focus();
         }
+        else if (!validated.termsAccepted) {
+            instance.refs.terms.focus();
+        }
     },
 
     formValid() {
-        const validated = this.state.validated;
-        return validated.name && validated.email && validated.password;
+        const validated = this.props.validated;
+        return validated.name && validated.email && validated.password && validated.termsAccepted;
     },
 
     getInitialState() {
-        const state = this.props.deepClone(); // available through js-ext/lib/object
-        state.formValid = false;
-        state.formValidated = false;
-        state.validated = {};
-        state.validators = {
-            email: ["required", "email"],
-            name: ["required"],
-            password: ["required", "password"]
+        return {
+            formValid: false,
+            formValidated: false
         };
-
-        // set initial validation:
-        this.props.each((value, key) => {
-            // only inspect primary type-properties
-            if (typeof state[key]!=="object") {
-                state.validated[key] = this.validate(state[key], state.validators[key]);
-            }
-        });
-
-        return state;
     },
 
-    handleChangeName(e) {
-        const newVal = e.target.value,
-              validated = this.state.validated.deepClone();
-        validated.name = this.validate(newVal, this.state.validators.name);
-        this.setState({
-            name: newVal,
-            validated: validated
-        });
-    },
-
-    handleChangeEmail(e) {
-        const newVal = e.target.value,
-              validated = this.state.validated.deepClone();
-        validated.email = this.validate(newVal, this.state.validators.email);
-        this.setState({
-            email: newVal,
-            validated: validated
-        });
-    },
-
-    handleChangePassword(e) {
-        const newVal = e.target.value,
-              validated = this.state.validated.deepClone();
-        validated.password = this.validate(newVal, this.state.validators.password);
-        this.setState({
-            password: newVal,
-            validated: validated
-        });
-    },
 
     handleSubmit(e) {
         const formValid = this.formValid();
         e.preventDefault();
         this.setState({
-            formValid: formValid,
+            formValid,
             formValidated: true
         });
-        if (!formValid) {
-            this.focusUnvalidated();
-        }
+        this.props.onSubmit && this.props.onSubmit({
+            formValid,
+            target: this
+        });
     },
 
     render() {
         let formClass = "pure-form pure-form-stacked";
-        const validatedText = (this.state.formValid) ? "valid" : "invalid";
-        const validatedMsg = (
-            <legend className="formheader">Form is {validatedText}</legend>
-        );
-        this.state.formValid || (formClass+=" invalid");
+        const props = this.props,
+              formValid = this.state.formValid,
+              formValidated = this.state.formValidated,
+              validatedText = formValid ? "valid" : "invalid",
+              validatedMsg = (
+                  <legend className="formheader">Form is {validatedText}</legend>
+              ),
+              generalTermsMsgClass = "checkbox-text" + ((formValidated && !props.termsAccepted) ? " checkbox-error-text" : "");
+
+        formValid || (formClass+=" invalid");
+
         return (
             <form
                 className={formClass}
@@ -110,83 +83,183 @@ const MyForm = React.createClass({
                         autoFocus={true}
                         className="pure-input-1"
                         errorMsg="Enter your name"
-                        formValidated={this.state.formValidated}
+                        formValidated={formValidated}
+                        markRequired={true}
                         markValidated={true}
-                        onChange={this.handleChangeName}
+                        onChange={props.onChangeName}
                         placeholder="Name"
                         ref="name"
                         tabIndex={1}
-                        validated={this.state.validated.name}
-                        value={this.state.name} />
+                        validated={props.validated.name}
+                        value={props.name} />
                     <Input
                         className="pure-input-1"
                         errorMsg="Emailformat is: user@example.com"
-                        formValidated={this.state.formValidated}
-                        helpText="Use format: user@example.com"
+                        formValidated={formValidated}
+                        helpText="use format: user@example.com"
+                        markRequired={true}
                         markValidated={true}
-                        onChange={this.handleChangeEmail}
+                        onChange={props.onChangeEmail}
                         placeholder="Email address"
                         ref="email"
                         tabIndex={2}
-                        validated={this.state.validated.email}
-                        value={this.state.email} />
+                        validated={props.validated.email}
+                        value={props.email} />
                     <Input
-                        className="pure-input-1"
+                        className="pure-input-1 last"
                         errorMsg="Use at least 5 characters"
-                        formValidated={this.state.formValidated}
+                        formValidated={formValidated}
+                        markRequired={true}
                         markValidated={true}
-                        onChange={this.handleChangePassword}
+                        onChange={props.onChangePassword}
                         placeholder="Password"
                         ref="password"
                         tabIndex={3}
                         type="password"
-                        validated={this.state.validated.password}
-                        value={this.state.password} />
+                        validated={props.validated.password}
+                        value={props.password} />
+                    <Checkbox
+                        checked={props.termsAccepted}
+                        onChange={props.onTermsAccepted}
+                        ref="terms"
+                        tabIndex={4} />
+                    <span className="itsa-input-required-msg-after">General terms accepted</span>
+                    <div className={generalTermsMsgClass}>
+                        You need to accept our terms
+                    </div>
+                    <div className="itsa-input-required-msg-before">
+                        required fields
+                    </div>
                     <button
                         className="pure-button pure-button-primary"
+                        tabIndex={5}
                         type="submit" >
-                        Validate
+                        Validate Form
                     </button>
                 </fieldset>
             </form>
         );
-    },
-
-    validate(value, validators) {
-        let valid;
-        if (!validators) {
-            return true;
-        }
-        validators.some(validatorKey => {
-            this.validatorsFunc[validatorKey] && (valid=this.validatorsFunc[validatorKey](value));
-            return !valid;
-        });
-        return !!valid;
-    },
-
-    validatorsFunc: {
-        email(val) {
-            return val.validateEmail(); // comes from itsa/lib/string
-        },
-
-        password(val) {
-            return val && (val.length>=5);
-        },
-
-        required(val) {
-            return !!val;
-        }
     }
 
 });
 
-const props = {
-    name: '',
-    email: '',
-    password: ''
+
+/*******************************************************
+ * Event-hanldlers
+ *******************************************************/
+const handleChangeName = (e) => {
+    redefineProps('name', e.target.value);
 };
 
-ReactDOM.render(
-    <MyForm {...props} />,
-    document.getElementById("component-container")
-);
+const handleChangeEmail = (e) => {
+    redefineProps('email', e.target.value);
+};
+
+const handleChangePassword = (e) => {
+    redefineProps('password', e.target.value);
+};
+
+const handleSubmit = (e) => {
+    const formValid = e.formValid,
+          form = e.target;
+    formValid || form.focusUnvalidated();
+};
+
+const handleTermsAccepted = (e) => {
+    redefineProps('termsAccepted');
+};
+
+
+/*******************************************************
+ * Validation
+ *******************************************************/
+const validate = (value, validators) => {
+    let valid;
+    if (!validators) {
+        return true;
+    }
+    validators.some(validatorKey => {
+        validatorsDefinition[validatorKey] && (valid=validatorsDefinition[validatorKey](value));
+        return !valid;
+    });
+    return !!valid;
+};
+
+const validatorsDefinition = {
+    checked(val) {
+        return !!val
+    },
+
+    email(val) {
+        return val.validateEmail(); // comes from itsa/lib/string
+    },
+
+    password(val) {
+        return val && (val.length>=5);
+    },
+
+    required(val) {
+        return !!val;
+    }
+};
+
+const validateProps = props => {
+    props.each((value, key) => {
+        // only inspect primary type-properties
+        if (typeof props[key]!=="object") {
+            props.validated[key] = validate(props[key], props.validators[key]);
+        }
+    });
+};
+
+
+/*******************************************************
+ * props
+ *******************************************************/
+let props = {
+    name: '',
+    email: '',
+    password: '',
+    termsAccepted: false,
+    onChangeName: handleChangeName,
+    onChangeEmail: handleChangeEmail,
+    onChangePassword: handleChangePassword,
+    onSubmit: handleSubmit,
+    onTermsAccepted: handleTermsAccepted,
+    validated: {},
+    validators: {
+        email: ["required", "email"],
+        name: ["required"],
+        termsAccepted: ["checked"],
+        password: ["required", "password"]
+    }
+};
+
+const redefineProps = (key, value) => {
+    if (key==='termsAccepted') {
+        props.termsAccepted = !props.termsAccepted;
+    }
+    else {
+        props[key] = value;
+    }
+    validateProps(props);
+    renderForm(props);
+};
+
+
+/*******************************************************
+ * React render form
+ *******************************************************/
+const renderForm = props => {
+    ReactDOM.render(
+        <MyForm {...props} />,
+        document.getElementById("component-container")
+    );
+};
+
+
+/*******************************************************
+ * Initialization
+ *******************************************************/
+validateProps(props);
+renderForm(props);

@@ -1,7 +1,7 @@
 {
   "name": "itsa-react-input",
   "version": "0.0.1",
-  "description": "Beautiful functional input-element for react",
+  "description": "Beautiful functional textarea-element for react",
   "author": [
     {
       "name": "Marco Asbreuk",
@@ -27,6 +27,7 @@
   },
   "directories": {
     "css": "./css",
+    "img": "./img",
     "lib": "./lib"
   },
   "dependencies": {
@@ -46,6 +47,7 @@
     "eslint-plugin-react": "^3.15.0",
     "file-loader": "^0.8.5",
     "istanbul": "^0.3.0",
+    "itsa-react-checkbox": "^0.1.7",
     "js-ext": "itsa/js-ext",
     "jsdom": "^7.2.2",
     "jsdom-global": "^1.6.1",

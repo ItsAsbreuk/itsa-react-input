@@ -43,7 +43,7 @@ const Input = React.createClass({
         errorMsg: PropTypes.string,
 
         /**
-         * Whether the parent-form has been submitted.
+         * Whether the parent-form has been validated.
          * This value is needed to determine if the validate-status should be set.
          *
          * @property formValidated
@@ -71,15 +71,6 @@ const Input = React.createClass({
         id: PropTypes.string,
 
         /**
-         * The `label` for the element.
-         *
-         * @property label
-         * @type String
-         * @since 0.0.1
-        */
-        label: PropTypes.string,
-
-        /**
          * Whether to mark the Component when successfully validated.
          *
          * @property markValidated
@@ -87,6 +78,15 @@ const Input = React.createClass({
          * @since 0.0.1
         */
         markValidated: PropTypes.bool,
+
+        /**
+         * Whether the Component should show an validate-reclamation (star)
+         *
+         * @property markValidated
+         * @type Boolean
+         * @since 0.0.1
+        */
+        markRequired: PropTypes.bool,
 
         /**
          * The `name` for the element.
@@ -105,15 +105,6 @@ const Input = React.createClass({
          * @since 0.0.1
         */
         onChange: PropTypes.func.isRequired,
-
-        /**
-         * Set this value whenever the field should use a pattern
-         *
-         * @property pattern
-         * @type String
-         * @since 0.0.1
-        */
-        pattern: PropTypes.string,
 
         /**
          * The `placeholder` for the element.
@@ -158,7 +149,7 @@ const Input = React.createClass({
          * @type String
          * @since 0.0.1
         */
-        value: PropTypes.string.isRequired
+        value: PropTypes.string
     },
 
     /**
@@ -168,7 +159,10 @@ const Input = React.createClass({
      * @since 0.0.1
      */
     componentDidMount() {
-        this.props.autoFocus && this.focus();
+        const instance = this,
+              domNode = ReactDom.findDOMNode(instance);
+        instance._inputNode = domNode.querySelector("input");
+        instance.props.autoFocus && instance.focus();
     },
 
     /**
@@ -192,7 +186,7 @@ const Input = React.createClass({
      * @since 0.0.1
      */
     focus() {
-        this.refs.input && ReactDom.findDOMNode(this.refs.input).focus();
+        this._inputNode.focus();
         return this;
     },
 
@@ -244,23 +238,6 @@ const Input = React.createClass({
     },
 
     renderInputElement(inputProps) {
-        // inputElement = props.pattern ?
-        //               (<MaskedInput mask={props.pattern} ref="mask" {...inputProps} />) :
-        //               props.type==="textarea" ?
-        //                   (<textarea {...inputProps} />) :
-        //                   (<input {...inputProps} />);
-
-        // in case we are using `react-maskedinput`, then it doesn"t accept an empty value
-        // once it already has content. This makes it impossible to emtpy.
-        // therefore we need to empty the maks by hacking it:
-/*
-        if (props.pattern) {
-            maskComponent = this.refs.mask; // only there when already rendered before
-            if (maskComponent && !props.value) {
-                maskComponent.mask.setValue();
-            }
-        }
-*/
         return (<input {...inputProps} />);
     },
 
@@ -276,26 +253,25 @@ const Input = React.createClass({
             label, errorMsg, help, labelClass, inputProps, maskComponent;
         const instance = this,
             props = instance.props,
+            value = props.value || "",
             type = props.type || "text",
             errored = (!instance.changed &&
                 (props.validated===false) &&
-                (props.value || props.formValidated));
+                props.formValidated);
 
         props.className && (wrapperClass+=" "+props.className);
         errored && (wrapperClass+=SPACED_MAIN_CLASS_PREFIX+"error");
         instance.state.focused && (wrapperClass+=SPACED_MAIN_CLASS_PREFIX+"focus");
-        if (props.markValidated && !errored && !instance.state.focussed && !instance.changed && props.value && props.validated) {
+
+        if (props.markValidated && !errored && !instance.state.focussed && !instance.changed && value && props.validated) {
             wrapperClass += SPACED_MAIN_CLASS_PREFIX+"feedback-success";
+        }
+        else if (props.markRequired && !value) {
+            wrapperClass += SPACED_MAIN_CLASS_PREFIX+"required";
         }
 
         if (errored && props.errorMsg) {
             errorMsg = (<div className={MAIN_CLASS_PREFIX+"error-text"}>{props.errorMsg}</div>);
-        }
-
-        if (props.label) {
-            labelClass = MAIN_CLASS_PREFIX + "control-label";
-            props.labelClasses && (labelClass+=" "+props.labelClasses);
-            label = (<Label className={labelClass} htmlFor={props.id} value={props.label} />);
         }
 
         if (props.helpText) {
@@ -303,7 +279,7 @@ const Input = React.createClass({
         }
 
         inputProps = {
-            className: MAIN_CLASS_PREFIX+"-element",
+            className: MAIN_CLASS_PREFIX+"element",
             id: props.id,
             name: props.name,
             onBlur: instance.handleBlur,
@@ -311,10 +287,9 @@ const Input = React.createClass({
             onFocus: instance.handleFocus,
             placeholder: props.placeholder,
             readOnly: props.readOnly || false,
-            ref: "input",
             tabIndex: props.tabIndex || 1,
             type: type,
-            value: props.value
+            value
         };
 
         return (

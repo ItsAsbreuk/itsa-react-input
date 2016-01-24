@@ -12,13 +12,33 @@
             border: solid 1px #AAA;
             padding: 1em;
             background-color: #FAFAFA;
+            margin: 3em auto;
         }
         #component-container button {
-            float: right;
+            width: 100%;
+            text-align: center;
             margin-top: 1em;
         }
-        #component-container form.invalid  .formheader {
+        #component-container form.invalid .formheader {
             color: #F34F4F;
+        }
+        #component-container .checkbox-text {
+            color: #F34F4F;
+            visibility: hidden;
+            margin-top: 0.4em;
+            font-size: 0.8em;
+        }
+        #component-container .checkbox-error-text.checkbox-text {
+            visibility: visible;
+        }
+        #component-container .itsa-input.last {
+            margin-bottom: 1.4em;
+        }
+        #component-container .itsa-checkbox {
+            margin-right: 0.5em;
+        }
+        #component-container .form-text {
+            color: #444;
         }
     </style>
 </head>

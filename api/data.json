@@ -78,7 +78,7 @@
         {
             "file": "lib/component.jsx",
             "line": 45,
-            "description": "Whether the parent-form has been submitted.\nThis value is needed to determine if the validate-status should be set.",
+            "description": "Whether the parent-form has been validated.\nThis value is needed to determine if the validate-status should be set.",
             "itemtype": "property",
             "name": "formValidated",
             "type": "Boolean",
@@ -133,6 +133,17 @@
         {
             "file": "lib/component.jsx",
             "line": 91,
+            "description": "Whether the Component should show an validate-reclamation (star)",
+            "itemtype": "property",
+            "name": "markValidated",
+            "type": "Boolean",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 100,
             "description": "The `name` for the element.",
             "itemtype": "property",
             "name": "name",
@@ -143,7 +154,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 100,
+            "line": 109,
             "description": "The `onChange` function, which should update the `state`.",
             "itemtype": "property",
             "name": "onChange",
@@ -154,7 +165,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 109,
+            "line": 118,
             "description": "Set this value whenever the field should use a pattern",
             "itemtype": "property",
             "name": "pattern",
@@ -165,7 +176,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 118,
+            "line": 127,
             "description": "The `placeholder` for the element.",
             "itemtype": "property",
             "name": "placeholder",
@@ -176,7 +187,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 127,
+            "line": 136,
             "description": "The `type` of the input-element.",
             "itemtype": "property",
             "name": "type",
@@ -187,7 +198,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 136,
+            "line": 145,
             "description": "The tabindex of the Component.",
             "itemtype": "property",
             "name": "type",
@@ -198,7 +209,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 145,
+            "line": 154,
             "description": "Whether the property is validated right.",
             "itemtype": "property",
             "name": "validated",
@@ -209,7 +220,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 154,
+            "line": 163,
             "description": "The `value` of the input-element.",
             "itemtype": "property",
             "name": "value",
@@ -220,7 +231,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 164,
+            "line": 173,
             "description": "componentDidMount will call `this.activatePlaces()`;",
             "itemtype": "method",
             "name": "componentDidMount",
@@ -230,7 +241,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 174,
+            "line": 186,
             "description": "Gets the Component\"s internal state. Note, that the this is NOT Redux\"s state.",
             "itemtype": "method",
             "name": "getInitialState",
@@ -243,7 +254,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 187,
+            "line": 199,
             "description": "Sets the focus on the Component.",
             "itemtype": "method",
             "name": "focus",
@@ -254,7 +265,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 199,
+            "line": 211,
             "description": "The method that is called whenever the input-Element changes its value.\nWill update the Redux-store (signupuser.homeaddress);",
             "itemtype": "method",
             "name": "handleChange",
@@ -271,7 +282,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 214,
+            "line": 226,
             "description": "The method that is called whenever the input-Element gets the focus.\nIt will change its internal state, so that the css looks right and\nalso any validation-messages disappear.",
             "itemtype": "method",
             "name": "handleFocus",
@@ -288,7 +299,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 230,
+            "line": 242,
             "description": "The method that is called whenever the input-Element gets blurred.\nIt will change its internal state, so that the css looks right and\nalso any validation-messages appear.",
             "itemtype": "method",
             "name": "handleBlur",
@@ -305,7 +316,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 267,
+            "line": 262,
             "description": "React render-method --> renderes the Component.",
             "itemtype": "method",
             "name": "render",
