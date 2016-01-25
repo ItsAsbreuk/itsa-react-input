@@ -259,7 +259,7 @@ const MyForm = React.createClass({
                     </div>
                     <button
                         className="pure-button pure-button-primary"
-                        tabIndex={5}
+                        tabIndex={8}
                         type="submit" >
                         Validate Form
                     </button>
