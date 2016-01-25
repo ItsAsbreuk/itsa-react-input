@@ -154,15 +154,6 @@ const Input = React.createClass({
         id: PropTypes.string,
 
         /**
-         * The &#x60;label&#x60; for the element.
-         *
-         * @property label
-         * @type String
-         * @since 0.0.1
-        */
-        label: PropTypes.string,
-
-        /**
          * Whether to mark the Component when successfully validated.
          *
          * @property markValidated
@@ -197,15 +188,6 @@ const Input = React.createClass({
          * @since 0.0.1
         */
         onChange: PropTypes.func.isRequired,
-
-        /**
-         * Set this value whenever the field should use a pattern
-         *
-         * @property pattern
-         * @type String
-         * @since 0.0.1
-        */
-        pattern: PropTypes.string,
 
         /**
          * The &#x60;placeholder&#x60; for the element.
@@ -264,6 +246,18 @@ const Input = React.createClass({
               domNode = ReactDom.findDOMNode(instance);
         instance._inputNode = domNode.querySelector(&quot;input&quot;);
         instance.props.autoFocus &amp;&amp; instance.focus();
+    },
+
+    /**
+     * Returns the rendered React-Element that serves as the source dom-element
+     *
+     * @method element
+     * @param props {Object} props to be passed through to the Component
+     * @return ReactComponent
+     * @since 0.0.4
+     */
+    element(props) {
+        return (&lt;input {...props} /&gt;);
     },
 
     /**
@@ -338,15 +332,11 @@ const Input = React.createClass({
         });
     },
 
-    renderInputElement(inputProps) {
-        return (&lt;input {...inputProps} /&gt;);
-    },
-
     /**
      * React render-method --&gt; renderes the Component.
      *
      * @method render
-     * @return ReactComponents
+     * @return ReactComponent
      * @since 0.0.1
      */
     render() {
@@ -354,6 +344,7 @@ const Input = React.createClass({
             label, errorMsg, help, labelClass, inputProps, maskComponent;
         const instance = this,
             props = instance.props,
+            element = props.element || instance.element,
             value = props.value || &quot;&quot;,
             type = props.type || &quot;text&quot;,
             errored = (!instance.changed &amp;&amp;
@@ -373,12 +364,6 @@ const Input = React.createClass({
 
         if (errored &amp;&amp; props.errorMsg) {
             errorMsg = (&lt;div className={MAIN_CLASS_PREFIX+&quot;error-text&quot;}&gt;{props.errorMsg}&lt;/div&gt;);
-        }
-
-        if (props.label) {
-            labelClass = MAIN_CLASS_PREFIX + &quot;control-label&quot;;
-            props.labelClasses &amp;&amp; (labelClass+=&quot; &quot;+props.labelClasses);
-            label = (&lt;Label className={labelClass} htmlFor={props.id} value={props.label} /&gt;);
         }
 
         if (props.helpText) {
@@ -403,7 +388,7 @@ const Input = React.createClass({
             &lt;div className={wrapperClass}&gt;
                 {label}
                 &lt;div className={MAIN_CLASS_PREFIX+&quot;inputbox&quot;}&gt;
-                    {instance.renderInputElement.call(this, inputProps)}
+                    {element.call(this, inputProps)}
                     {errorMsg}
                 &lt;/div&gt;
                 {help}

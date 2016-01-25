@@ -2,6 +2,8 @@ $color-error-border: #FF6A6A;
 $color-error-text: #F34F4F;
 $background-color-error-text: #F9F9F9;
 $color-required-star: #FF6A6A;
+$color-help-text: #999;
+$color-placeholder: #CCC;
 
 .itsa-input {
     position: relative;
@@ -15,22 +17,41 @@ $color-required-star: #FF6A6A;
         display: block !important;
         margin: 0 !important;
     }
+    input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        color: $color-placeholder;
+    }
+    input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: $color-placeholder;
+        opacity:  1;
+    }
+    input::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: $color-placeholder;
+        opacity:  1;
+    }
+    input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $color-placeholder;
+    }
+    input:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+        color: $color-placeholder;
+    }
+
 }
+
 
 .itsa-input-required::after {
     content: "*";
     position: absolute;
     font-size: 2em;
-    top: 0.2em;
-    right: 0.2em;
+    top: 0.1em;
+    right: 0;
     color: $color-required-star;
 }
 
 .itsa-input-feedback-success::after {
     content: url("../img/icon-success.svg");
     position: absolute;
-    top: 0.5em;
-    right: 0.5em;
+    top: 0.1em;
+    right: 0;
 }
 
 .itsa-input-inputbox {
@@ -68,7 +89,7 @@ $color-required-star: #FF6A6A;
 }
 
 .itsa-input-help-text {
-    color: #999;
+    color: $color-help-text;
     font-size: 0.8em;
     margin: 0.2em 0 0.4em;
 }

@@ -111,17 +111,6 @@
         {
             "file": "lib/component.jsx",
             "line": 73,
-            "description": "The `label` for the element.",
-            "itemtype": "property",
-            "name": "label",
-            "type": "String",
-            "since": "0.0.1",
-            "class": "Input",
-            "module": "itsa-react-input"
-        },
-        {
-            "file": "lib/component.jsx",
-            "line": 82,
             "description": "Whether to mark the Component when successfully validated.",
             "itemtype": "property",
             "name": "markValidated",
@@ -132,7 +121,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 91,
+            "line": 82,
             "description": "Whether the Component should show an validate-reclamation (star)",
             "itemtype": "property",
             "name": "markValidated",
@@ -143,7 +132,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 100,
+            "line": 91,
             "description": "The `name` for the element.",
             "itemtype": "property",
             "name": "name",
@@ -154,7 +143,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 109,
+            "line": 100,
             "description": "The `onChange` function, which should update the `state`.",
             "itemtype": "property",
             "name": "onChange",
@@ -165,18 +154,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 118,
-            "description": "Set this value whenever the field should use a pattern",
-            "itemtype": "property",
-            "name": "pattern",
-            "type": "String",
-            "since": "0.0.1",
-            "class": "Input",
-            "module": "itsa-react-input"
-        },
-        {
-            "file": "lib/component.jsx",
-            "line": 127,
+            "line": 109,
             "description": "The `placeholder` for the element.",
             "itemtype": "property",
             "name": "placeholder",
@@ -187,7 +165,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 136,
+            "line": 118,
             "description": "The `type` of the input-element.",
             "itemtype": "property",
             "name": "type",
@@ -198,7 +176,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 145,
+            "line": 127,
             "description": "The tabindex of the Component.",
             "itemtype": "property",
             "name": "type",
@@ -209,7 +187,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 154,
+            "line": 136,
             "description": "Whether the property is validated right.",
             "itemtype": "property",
             "name": "validated",
@@ -220,7 +198,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 163,
+            "line": 145,
             "description": "The `value` of the input-element.",
             "itemtype": "property",
             "name": "value",
@@ -231,7 +209,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 173,
+            "line": 155,
             "description": "componentDidMount will call `this.activatePlaces()`;",
             "itemtype": "method",
             "name": "componentDidMount",
@@ -241,7 +219,27 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 186,
+            "line": 168,
+            "description": "Returns the rendered React-Element that serves as the source dom-element",
+            "itemtype": "method",
+            "name": "element",
+            "params": [
+                {
+                    "name": "props",
+                    "description": "props to be passed through to the Component",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "ReactComponent"
+            },
+            "since": "0.0.4",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 180,
             "description": "Gets the Component\"s internal state. Note, that the this is NOT Redux\"s state.",
             "itemtype": "method",
             "name": "getInitialState",
@@ -254,7 +252,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 199,
+            "line": 193,
             "description": "Sets the focus on the Component.",
             "itemtype": "method",
             "name": "focus",
@@ -265,7 +263,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 211,
+            "line": 205,
             "description": "The method that is called whenever the input-Element changes its value.\nWill update the Redux-store (signupuser.homeaddress);",
             "itemtype": "method",
             "name": "handleChange",
@@ -282,7 +280,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 226,
+            "line": 220,
             "description": "The method that is called whenever the input-Element gets the focus.\nIt will change its internal state, so that the css looks right and\nalso any validation-messages disappear.",
             "itemtype": "method",
             "name": "handleFocus",
@@ -299,7 +297,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 242,
+            "line": 236,
             "description": "The method that is called whenever the input-Element gets blurred.\nIt will change its internal state, so that the css looks right and\nalso any validation-messages appear.",
             "itemtype": "method",
             "name": "handleBlur",
@@ -316,12 +314,12 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 262,
+            "line": 252,
             "description": "React render-method --> renderes the Component.",
             "itemtype": "method",
             "name": "render",
             "return": {
-                "description": "ReactComponents"
+                "description": "ReactComponent"
             },
             "since": "0.0.1",
             "class": "Input",

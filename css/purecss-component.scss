@@ -9,6 +9,16 @@
         margin-bottom: 0.5em;
     }
 
+    .itsa-input-required::after {
+        top: 0.2em;
+        right: 0.2em;
+    }
+
+    .itsa-input-feedback-success::after {
+        top: 0.5em;
+        right: 0.5em;
+    }
+
     &.pure-form-stacked .itsa-input {
         display: block;
         margin: 0.5em 0;

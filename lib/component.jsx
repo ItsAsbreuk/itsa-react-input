@@ -166,6 +166,18 @@ const Input = React.createClass({
     },
 
     /**
+     * Returns the rendered React-Element that serves as the source dom-element
+     *
+     * @method element
+     * @param props {Object} props to be passed through to the Component
+     * @return ReactComponent
+     * @since 0.0.4
+     */
+    element(props) {
+        return (<input {...props} />);
+    },
+
+    /**
      * Gets the Component"s internal state. Note, that the this is NOT Redux"s state.
      *
      * @method getInitialState
@@ -237,15 +249,11 @@ const Input = React.createClass({
         });
     },
 
-    renderInputElement(inputProps) {
-        return (<input {...inputProps} />);
-    },
-
     /**
      * React render-method --> renderes the Component.
      *
      * @method render
-     * @return ReactComponents
+     * @return ReactComponent
      * @since 0.0.1
      */
     render() {
@@ -253,6 +261,7 @@ const Input = React.createClass({
             label, errorMsg, help, labelClass, inputProps, maskComponent;
         const instance = this,
             props = instance.props,
+            element = props.element || instance.element,
             value = props.value || "",
             type = props.type || "text",
             errored = (!instance.changed &&
@@ -296,7 +305,7 @@ const Input = React.createClass({
             <div className={wrapperClass}>
                 {label}
                 <div className={MAIN_CLASS_PREFIX+"inputbox"}>
-                    {instance.renderInputElement.call(this, inputProps)}
+                    {element.call(this, inputProps)}
                     {errorMsg}
                 </div>
                 {help}
