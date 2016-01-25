@@ -104,7 +104,7 @@ import "itsa-react-checkbox/css/component.scss";
 
 const React = require("react"),
     ReactDOM = require("react-dom"),
-    Input = require("./lib/component-styled.jsx"),
+    Input = require("itsa-react-input"),
     Checkbox = require("itsa-react-checkbox");
 
 
