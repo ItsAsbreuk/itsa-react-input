@@ -102,7 +102,8 @@ import ReactDom from &quot;react-dom&quot;;
 
 const MAIN_CLASS = &quot;itsa-input&quot;,
       MAIN_CLASS_PREFIX = MAIN_CLASS+&quot;-&quot;,
-      SPACED_MAIN_CLASS_PREFIX = &quot; &quot;+MAIN_CLASS_PREFIX;
+      SPACED_MAIN_CLASS_PREFIX = &quot; &quot;+MAIN_CLASS_PREFIX,
+      ELEMENT = &quot;element&quot;;
 
 const Input = React.createClass({
 
@@ -244,7 +245,7 @@ const Input = React.createClass({
     componentDidMount() {
         const instance = this,
               domNode = ReactDom.findDOMNode(instance);
-        instance._inputNode = domNode.querySelector(&quot;input&quot;);
+        instance._inputNode = domNode.querySelector(&quot;.&quot;+MAIN_CLASS_PREFIX+ELEMENT);
         instance.props.autoFocus &amp;&amp; instance.focus();
     },
 
@@ -371,7 +372,7 @@ const Input = React.createClass({
         }
 
         inputProps = {
-            className: MAIN_CLASS_PREFIX+&quot;element&quot;,
+            className: MAIN_CLASS_PREFIX+ELEMENT,
             id: props.id,
             name: props.name,
             onBlur: instance.handleBlur,

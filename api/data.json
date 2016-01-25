@@ -55,7 +55,7 @@
     "classitems": [
         {
             "file": "lib/component.jsx",
-            "line": 27,
+            "line": 28,
             "description": "Whether to autofocus the Component.",
             "itemtype": "property",
             "name": "autoFocus",
@@ -66,7 +66,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 36,
+            "line": 37,
             "description": "The error-message that appears when the element is wrong validated.",
             "itemtype": "property",
             "name": "errorMsg",
@@ -77,7 +77,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 45,
+            "line": 46,
             "description": "Whether the parent-form has been validated.\nThis value is needed to determine if the validate-status should be set.",
             "itemtype": "property",
             "name": "formValidated",
@@ -88,7 +88,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 55,
+            "line": 56,
             "description": "The text that should appear when the element is wrong validated.",
             "itemtype": "property",
             "name": "helpText",
@@ -99,7 +99,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 64,
+            "line": 65,
             "description": "The `id` of the element.",
             "itemtype": "property",
             "name": "id",
@@ -110,7 +110,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 73,
+            "line": 74,
             "description": "Whether to mark the Component when successfully validated.",
             "itemtype": "property",
             "name": "markValidated",
@@ -121,7 +121,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 82,
+            "line": 83,
             "description": "Whether the Component should show an validate-reclamation (star)",
             "itemtype": "property",
             "name": "markValidated",
@@ -132,7 +132,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 91,
+            "line": 92,
             "description": "The `name` for the element.",
             "itemtype": "property",
             "name": "name",
@@ -143,7 +143,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 100,
+            "line": 101,
             "description": "The `onChange` function, which should update the `state`.",
             "itemtype": "property",
             "name": "onChange",
@@ -154,7 +154,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 109,
+            "line": 110,
             "description": "The `placeholder` for the element.",
             "itemtype": "property",
             "name": "placeholder",
@@ -165,7 +165,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 118,
+            "line": 119,
             "description": "The `type` of the input-element.",
             "itemtype": "property",
             "name": "type",
@@ -176,7 +176,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 127,
+            "line": 128,
             "description": "The tabindex of the Component.",
             "itemtype": "property",
             "name": "type",
@@ -187,7 +187,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 136,
+            "line": 137,
             "description": "Whether the property is validated right.",
             "itemtype": "property",
             "name": "validated",
@@ -198,7 +198,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 145,
+            "line": 146,
             "description": "The `value` of the input-element.",
             "itemtype": "property",
             "name": "value",
@@ -209,7 +209,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 155,
+            "line": 156,
             "description": "componentDidMount will call `this.activatePlaces()`;",
             "itemtype": "method",
             "name": "componentDidMount",
@@ -219,7 +219,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 168,
+            "line": 169,
             "description": "Returns the rendered React-Element that serves as the source dom-element",
             "itemtype": "method",
             "name": "element",
@@ -239,7 +239,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 180,
+            "line": 181,
             "description": "Gets the Component\"s internal state. Note, that the this is NOT Redux\"s state.",
             "itemtype": "method",
             "name": "getInitialState",
@@ -252,7 +252,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 193,
+            "line": 194,
             "description": "Sets the focus on the Component.",
             "itemtype": "method",
             "name": "focus",
@@ -263,7 +263,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 205,
+            "line": 206,
             "description": "The method that is called whenever the input-Element changes its value.\nWill update the Redux-store (signupuser.homeaddress);",
             "itemtype": "method",
             "name": "handleChange",
@@ -280,7 +280,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 220,
+            "line": 221,
             "description": "The method that is called whenever the input-Element gets the focus.\nIt will change its internal state, so that the css looks right and\nalso any validation-messages disappear.",
             "itemtype": "method",
             "name": "handleFocus",
@@ -297,7 +297,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 236,
+            "line": 237,
             "description": "The method that is called whenever the input-Element gets blurred.\nIt will change its internal state, so that the css looks right and\nalso any validation-messages appear.",
             "itemtype": "method",
             "name": "handleBlur",
@@ -314,7 +314,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 252,
+            "line": 253,
             "description": "React render-method --> renderes the Component.",
             "itemtype": "method",
             "name": "render",
