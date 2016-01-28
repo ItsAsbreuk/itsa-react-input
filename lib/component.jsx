@@ -99,6 +99,15 @@ const Input = React.createClass({
         name: PropTypes.string,
 
         /**
+         * The `onBlur` function, when happening on the DOM-Element.
+         *
+         * @property onChange
+         * @type Function
+         * @since 0.1.0
+        */
+        onBlur: PropTypes.func.isRequired,
+
+        /**
          * The `onChange` function, which should update the `state`.
          *
          * @property onChange
@@ -106,6 +115,51 @@ const Input = React.createClass({
          * @since 0.0.1
         */
         onChange: PropTypes.func.isRequired,
+
+        /**
+         * The `onClick` function, when happening on the DOM-Element.
+         *
+         * @property onChange
+         * @type Function
+         * @since 0.0.1
+        */
+        onClick: PropTypes.func,
+
+        /**
+         * The `onFocus` function, when happening on the DOM-Element.
+         *
+         * @property onChange
+         * @type Function
+         * @since 0.1.0
+        */
+        onFocus: PropTypes.func,
+
+        /**
+         * The `onKeyDown` function, when happening on the DOM-Element.
+         *
+         * @property onChange
+         * @type Function
+         * @since 0.1.0
+        */
+        onKeyDown: PropTypes.func,
+
+        /**
+         * The `onKeyPress` function, when happening on the DOM-Element.
+         *
+         * @property onChange
+         * @type Function
+         * @since 0.1.0
+        */
+        onKeyPress: PropTypes.func,
+
+        /**
+         * The `onKeyUp` function, when happening on the DOM-Element.
+         *
+         * @property onChange
+         * @type Function
+         * @since 0.1.0
+        */
+        onKeyUp: PropTypes.func,
 
         /**
          * The `placeholder` for the element.
@@ -204,6 +258,23 @@ const Input = React.createClass({
     },
 
     /**
+     * The method that is called whenever the input-Element gets blurred.
+     * It will change its internal state, so that the css looks right and
+     * also any validation-messages appear.
+     *
+     * @method handleBlur
+     * @param e {Object} event-payload
+     * @since 0.0.1
+     */
+    handleBlur(e) {
+        this.changed = false;
+        this.setState({
+            focussed: false
+        });
+        this.props.onBlur && this.props.onBlur(e);
+    },
+
+    /**
      * The method that is called whenever the input-Element changes its value.
      * Will update the Redux-store (signupuser.homeaddress);
      *
@@ -216,6 +287,17 @@ const Input = React.createClass({
             this.changed = true;
             this.props.onChange(e);
         }
+    },
+
+    /**
+     * The method that is called whenever the input-Element gets clicked.
+     *
+     * @method handleClick
+     * @param e {Object} event-payload
+     * @since 0.1.0
+     */
+    handleClick(e) {
+        this.props.onClick(e);
     },
 
     /**
@@ -232,22 +314,41 @@ const Input = React.createClass({
         this.setState({
             focussed: true
         });
+        this.props.onFocus && this.props.onFocus(e);
+    },
+
+
+    /**
+     * The method that is called whenever the input-Element recieves a keyDown.
+     *
+     * @method handleKeyDown
+     * @param e {Object} event-payload
+     * @since 0.1.0
+     */
+    handleKeyDown(e) {
+        this.props.onKeyDown(e);
     },
 
     /**
-     * The method that is called whenever the input-Element gets blurred.
-     * It will change its internal state, so that the css looks right and
-     * also any validation-messages appear.
+     * The method that is called whenever the input-Element recieves a keyPress.
      *
-     * @method handleBlur
+     * @method handleKeyPress
      * @param e {Object} event-payload
-     * @since 0.0.1
+     * @since 0.1.0
      */
-    handleBlur() {
-        this.changed = false;
-        this.setState({
-            focussed: false
-        });
+    handleKeyPress(e) {
+        this.props.onKeyPress(e);
+    },
+
+    /**
+     * The method that is called whenever the input-Element recieves a keyUp.
+     *
+     * @method handleKeyUp
+     * @param e {Object} event-payload
+     * @since 0.1.0
+     */
+    handleKeyUp(e) {
+        this.props.onKeyUp(e);
     },
 
     /**
@@ -294,7 +395,11 @@ const Input = React.createClass({
             name: props.name,
             onBlur: instance.handleBlur,
             onChange: instance.handleChange,
+            onClick: props.onClick && instance.handleClick,
             onFocus: instance.handleFocus,
+            onKeyDown: props.onKeyDown && instance.handleKeyDown,
+            onKeyPress: props.onKeyPress && instance.handleKeyPress,
+            onKeyUp: props.onKeyUp && instance.handleKeyUp,
             placeholder: props.placeholder,
             readOnly: props.readOnly || false,
             tabIndex: props.tabIndex || 1,
