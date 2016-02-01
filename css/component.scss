@@ -16,6 +16,9 @@ $color-placeholder: #CCC;
         width: 100% !important;
         display: block !important;
         margin: 0 !important;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
     }
     input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
         color: $color-placeholder;
