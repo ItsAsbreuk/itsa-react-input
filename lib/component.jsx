@@ -105,7 +105,7 @@ const Input = React.createClass({
          * @type Function
          * @since 0.1.0
         */
-        onBlur: PropTypes.func.isRequired,
+        onBlur: PropTypes.func,
 
         /**
          * The `onChange` function, which should update the `state`.
