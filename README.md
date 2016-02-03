@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/ItsAsbreuk/itsa-react-input.svg?branch=master)](https://travis-ci.org/ItsAsbreuk/itsa-react-input)
 
-Beautiful functional textarea-element for react.
+Beautiful functional input-element for react.
 
 ## How to use:
 
