@@ -360,12 +360,13 @@ const Input = React.createClass({
      */
     render() {
         let wrapperClass = MAIN_CLASS,
-            label, errorMsg, help, labelClass, inputProps, maskComponent;
+            label, errorMsg, help, labelClass, inputProps, maskComponent, ariaRequired;
         const instance = this,
             props = instance.props,
             element = props.element || instance.element,
             value = props.value || "",
             type = props.type || "text",
+            readOnly = props.readOnly || false,
             errored = (!instance.changed &&
                 (props.validated===false) &&
                 props.formValidated);
@@ -379,6 +380,7 @@ const Input = React.createClass({
         }
         else if (props.markRequired && !value) {
             wrapperClass += SPACED_MAIN_CLASS_PREFIX+"required";
+            ariaRequired = true;
         }
 
         if (errored && props.errorMsg) {
@@ -390,6 +392,9 @@ const Input = React.createClass({
         }
 
         inputProps = {
+            "aria-invalid": errored,
+            "aria-readonly": readOnly,
+            "aria-required": ariaRequired,
             className: MAIN_CLASS_PREFIX+ELEMENT,
             id: props.id,
             name: props.name,
@@ -401,7 +406,8 @@ const Input = React.createClass({
             onKeyPress: props.onKeyPress && instance.handleKeyPress,
             onKeyUp: props.onKeyUp && instance.handleKeyUp,
             placeholder: props.placeholder,
-            readOnly: props.readOnly || false,
+            role: "textbox",
+            readOnly: readOnly,
             tabIndex: props.tabIndex || 1,
             type: type,
             value

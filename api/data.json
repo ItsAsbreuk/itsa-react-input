@@ -1,7 +1,7 @@
 {
     "project": {
-        "name": "itsa-checkbox",
-        "description": "React-Component: iOS-stylish checkbox",
+        "name": "itsa-react-input",
+        "description": "Beautiful functional input-element for react",
         "logo": "https://avatars0.githubusercontent.com/u/8314644?v=3&s=84",
         "version": "0.0.1"
     },
@@ -144,6 +144,17 @@
         {
             "file": "lib/component.jsx",
             "line": 101,
+            "description": "The `onBlur` function, when happening on the DOM-Element.",
+            "itemtype": "property",
+            "name": "onChange",
+            "type": "Function",
+            "since": "0.1.0",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 110,
             "description": "The `onChange` function, which should update the `state`.",
             "itemtype": "property",
             "name": "onChange",
@@ -154,7 +165,62 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 110,
+            "line": 119,
+            "description": "The `onClick` function, when happening on the DOM-Element.",
+            "itemtype": "property",
+            "name": "onChange",
+            "type": "Function",
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 128,
+            "description": "The `onFocus` function, when happening on the DOM-Element.",
+            "itemtype": "property",
+            "name": "onChange",
+            "type": "Function",
+            "since": "0.1.0",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 137,
+            "description": "The `onKeyDown` function, when happening on the DOM-Element.",
+            "itemtype": "property",
+            "name": "onChange",
+            "type": "Function",
+            "since": "0.1.0",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 146,
+            "description": "The `onKeyPress` function, when happening on the DOM-Element.",
+            "itemtype": "property",
+            "name": "onChange",
+            "type": "Function",
+            "since": "0.1.0",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 155,
+            "description": "The `onKeyUp` function, when happening on the DOM-Element.",
+            "itemtype": "property",
+            "name": "onChange",
+            "type": "Function",
+            "since": "0.1.0",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 164,
             "description": "The `placeholder` for the element.",
             "itemtype": "property",
             "name": "placeholder",
@@ -165,7 +231,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 119,
+            "line": 173,
             "description": "The `type` of the input-element.",
             "itemtype": "property",
             "name": "type",
@@ -176,7 +242,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 128,
+            "line": 182,
             "description": "The tabindex of the Component.",
             "itemtype": "property",
             "name": "type",
@@ -187,7 +253,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 137,
+            "line": 191,
             "description": "Whether the property is validated right.",
             "itemtype": "property",
             "name": "validated",
@@ -198,7 +264,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 146,
+            "line": 200,
             "description": "The `value` of the input-element.",
             "itemtype": "property",
             "name": "value",
@@ -209,7 +275,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 156,
+            "line": 210,
             "description": "componentDidMount will call `this.activatePlaces()`;",
             "itemtype": "method",
             "name": "componentDidMount",
@@ -219,7 +285,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 169,
+            "line": 223,
             "description": "Returns the rendered React-Element that serves as the source dom-element",
             "itemtype": "method",
             "name": "element",
@@ -239,7 +305,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 181,
+            "line": 235,
             "description": "Gets the Component\"s internal state. Note, that the this is NOT Redux\"s state.",
             "itemtype": "method",
             "name": "getInitialState",
@@ -252,7 +318,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 194,
+            "line": 248,
             "description": "Sets the focus on the Component.",
             "itemtype": "method",
             "name": "focus",
@@ -263,41 +329,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 206,
-            "description": "The method that is called whenever the input-Element changes its value.\nWill update the Redux-store (signupuser.homeaddress);",
-            "itemtype": "method",
-            "name": "handleChange",
-            "params": [
-                {
-                    "name": "e",
-                    "description": "event-payload",
-                    "type": "Object"
-                }
-            ],
-            "since": "0.0.1",
-            "class": "Input",
-            "module": "itsa-react-input"
-        },
-        {
-            "file": "lib/component.jsx",
-            "line": 221,
-            "description": "The method that is called whenever the input-Element gets the focus.\nIt will change its internal state, so that the css looks right and\nalso any validation-messages disappear.",
-            "itemtype": "method",
-            "name": "handleFocus",
-            "params": [
-                {
-                    "name": "e",
-                    "description": "event-payload",
-                    "type": "Object"
-                }
-            ],
-            "since": "0.0.1",
-            "class": "Input",
-            "module": "itsa-react-input"
-        },
-        {
-            "file": "lib/component.jsx",
-            "line": 237,
+            "line": 260,
             "description": "The method that is called whenever the input-Element gets blurred.\nIt will change its internal state, so that the css looks right and\nalso any validation-messages appear.",
             "itemtype": "method",
             "name": "handleBlur",
@@ -314,7 +346,109 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 253,
+            "line": 277,
+            "description": "The method that is called whenever the input-Element changes its value.\nWill update the Redux-store (signupuser.homeaddress);",
+            "itemtype": "method",
+            "name": "handleChange",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "event-payload",
+                    "type": "Object"
+                }
+            ],
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 292,
+            "description": "The method that is called whenever the input-Element gets clicked.",
+            "itemtype": "method",
+            "name": "handleClick",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "event-payload",
+                    "type": "Object"
+                }
+            ],
+            "since": "0.1.0",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 303,
+            "description": "The method that is called whenever the input-Element gets the focus.\nIt will change its internal state, so that the css looks right and\nalso any validation-messages disappear.",
+            "itemtype": "method",
+            "name": "handleFocus",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "event-payload",
+                    "type": "Object"
+                }
+            ],
+            "since": "0.0.1",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 321,
+            "description": "The method that is called whenever the input-Element recieves a keyDown.",
+            "itemtype": "method",
+            "name": "handleKeyDown",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "event-payload",
+                    "type": "Object"
+                }
+            ],
+            "since": "0.1.0",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 332,
+            "description": "The method that is called whenever the input-Element recieves a keyPress.",
+            "itemtype": "method",
+            "name": "handleKeyPress",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "event-payload",
+                    "type": "Object"
+                }
+            ],
+            "since": "0.1.0",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 343,
+            "description": "The method that is called whenever the input-Element recieves a keyUp.",
+            "itemtype": "method",
+            "name": "handleKeyUp",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "event-payload",
+                    "type": "Object"
+                }
+            ],
+            "since": "0.1.0",
+            "class": "Input",
+            "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 354,
             "description": "React render-method --> renderes the Component.",
             "itemtype": "method",
             "name": "render",

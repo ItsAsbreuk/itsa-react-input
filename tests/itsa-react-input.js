@@ -33,6 +33,9 @@ describe("React Component", function () {
             <div className="itsa-input">
               <div className="itsa-input-inputbox">
                 <input
+                  aria-invalid={false}
+                  aria-readonly={false}
+                  aria-required={undefined}
                   className="itsa-input-element"
                   id={undefined}
                   name={undefined}
@@ -45,6 +48,7 @@ describe("React Component", function () {
                   onKeyUp={undefined}
                   placeholder={undefined}
                   readOnly={false}
+                  role="textbox"
                   tabIndex={1}
                   type="text"
                   value=""
@@ -62,6 +66,9 @@ describe("React Component", function () {
             <div className="itsa-input">
               <div className="itsa-input-inputbox">
                 <input
+                  aria-invalid={false}
+                  aria-readonly={false}
+                  aria-required={undefined}
                   className="itsa-input-element"
                   id={undefined}
                   name={undefined}
@@ -73,6 +80,7 @@ describe("React Component", function () {
                   onKeyPress={undefined}
                   onKeyUp={undefined}
                   placeholder={undefined}
+                  role="textbox"
                   readOnly={false}
                   tabIndex={1}
                   type="text"
@@ -91,6 +99,9 @@ describe("React Component", function () {
             <div className="itsa-input">
               <div className="itsa-input-inputbox">
                 <input
+                  aria-invalid={false}
+                  aria-readonly={false}
+                  aria-required={undefined}
                   className="itsa-input-element"
                   id={undefined}
                   name={undefined}
@@ -102,6 +113,7 @@ describe("React Component", function () {
                   onKeyPress={undefined}
                   onKeyUp={undefined}
                   placeholder={undefined}
+                  role="textbox"
                   readOnly={false}
                   tabIndex={1}
                   type="password"
@@ -131,6 +143,9 @@ describe("React Component", function () {
             <div className="itsa-input itsa-input-required">
               <div className="itsa-input-inputbox">
                 <input
+                  aria-invalid={false}
+                  aria-readonly={false}
+                  aria-required={true}
                   className="itsa-input-element"
                   id="id1"
                   name="comp-name"
@@ -142,6 +157,7 @@ describe("React Component", function () {
                   onKeyPress={undefined}
                   onKeyUp={undefined}
                   placeholder="the placeholder"
+                  role="textbox"
                   readOnly={false}
                   tabIndex={3}
                   type="date"
@@ -183,6 +199,9 @@ describe("React Component", function () {
             <div className="itsa-input">
               <div className="itsa-input-inputbox">
                 <input
+                  aria-invalid={false}
+                  aria-readonly={false}
+                  aria-required={undefined}
                   className="itsa-input-element"
                   id={undefined}
                   name={undefined}
@@ -194,6 +213,7 @@ describe("React Component", function () {
                   onKeyPress={undefined}
                   onKeyUp={undefined}
                   placeholder={undefined}
+                  role="textbox"
                   readOnly={false}
                   tabIndex={1}
                   type="text"
@@ -219,6 +239,9 @@ describe("React Component", function () {
             <div className="itsa-input itsa-input-error">
               <div className="itsa-input-inputbox">
                 <input
+                  aria-invalid={true}
+                  aria-readonly={false}
+                  aria-required={undefined}
                   className="itsa-input-element"
                   id={undefined}
                   name={undefined}
@@ -230,6 +253,7 @@ describe("React Component", function () {
                   onKeyPress={undefined}
                   onKeyUp={undefined}
                   placeholder={undefined}
+                  role="textbox"
                   readOnly={false}
                   tabIndex={1}
                   type="text"
