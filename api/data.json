@@ -458,6 +458,28 @@
             "since": "0.0.1",
             "class": "Input",
             "module": "itsa-react-input"
+        },
+        {
+            "file": "lib/component.jsx",
+            "line": 431,
+            "description": "Merges the `data-*` attributes from props into the object",
+            "itemtype": "method",
+            "name": "_mergeDataAttrs",
+            "params": [
+                {
+                    "name": "inputProps",
+                    "description": "the source props which will be extended",
+                    "type": "Object"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "return": {
+                "description": "object all the data-* attributes"
+            },
+            "since": "0.2.0",
+            "class": "Input",
+            "module": "itsa-react-input"
         }
     ],
     "warnings": []

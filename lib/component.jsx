@@ -407,11 +407,14 @@ const Input = React.createClass({
             onKeyUp: props.onKeyUp && instance.handleKeyUp,
             placeholder: props.placeholder,
             role: "textbox",
-            readOnly: readOnly,
+            readOnly,
             tabIndex: props.tabIndex || 1,
-            type: type,
+            type,
             value
         };
+
+        // merge all data-props:
+        instance._mergeDataAttrs(inputProps);
 
         return (
             <div className={wrapperClass}>
@@ -423,6 +426,25 @@ const Input = React.createClass({
                 {help}
             </div>
         );
+    },
+
+    /**
+     * Merges the `data-*` attributes from props into the object
+     *
+     * @method _mergeDataAttrs
+     * @param inputProps {object} the source props which will be extended
+     * @private
+     * @return object all the data-* attributes
+     * @since 0.2.0
+     */
+    _mergeDataAttrs(inputProps) {
+        let dataAttrs = {};
+        const props = this.props,
+             keys = Object.keys(props);
+
+        keys.forEach(function(key) {
+            (key.substr(0,5).toLowerCase()==="data-") && (inputProps[key]=props[key]);
+        });
     }
 
 });

@@ -2515,7 +2515,7 @@
 /* 20 */
 /***/ function(module, exports) {
 
-	module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIycHgiIGhlaWdodD0iMjJweCIgdmlld0JveD0iMCAwIDIyIDIyIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnNrZXRjaD0iaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoL25zIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggMy4zICgxMTk3MCkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+aWNvbi1zdWNjZXNzIGNvcHkgNDwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJtb2JpbGUiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHNrZXRjaDp0eXBlPSJNU1BhZ2UiPgogICAgICAgIDxnIGlkPSJTaWduLXVwLWlQaG9uZS02LXN1Y2Nlc3MiIHNrZXRjaDp0eXBlPSJNU0FydGJvYXJkR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zMTUuMDAwMDAwLCAtMjQ1LjAwMDAwMCkiPgogICAgICAgICAgICA8ZyBpZD0iaWNvbi1zdWNjZXNzLWNvcHktNCIgc2tldGNoOnR5cGU9Ik1TTGF5ZXJHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzE1LjAwMDAwMCwgMjQ1LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGVsbGlwc2UgaWQ9Ik92YWwtMSIgZmlsbD0iIzhDQkM0NSIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCIgY3g9IjEwLjcwNzY5MjMiIGN5PSIxMC43MTQyODU3IiByeD0iMTAuNzA3NjkyMyIgcnk9IjEwLjcxNDI4NTciPjwvZWxsaXBzZT4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik01LjYxMDI2MjY4LDEyLjkyMzU3OCBMNi42MjcyMjQzOCwxMS43NzU3OTUgTDkuMjUwOTk4NjMsMTMuNTY3MDgxOCBMMTUuMzg2ODAwNSw2LjcyNTA2NjM4IEwxNi42OTc0Mjk2LDcuNjExNzgzNzEgTDkuNTM2OTk2ODEsMTUuNTk2MzYyMiBMNS42MTAyNjI2OCwxMi45MjM1NzggTDUuNjEwMjYyNjgsMTIuOTIzNTc4IFoiIGlkPSLinJMtY29weSIgZmlsbD0iI0ZGRkZGRiIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+PC9wYXRoPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4="
+	module.exports = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjEuMmVtIiBoZWlnaHQ9IjEuMmVtIiB2aWV3Qm94PSIwIDAgMjIgMjIiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCAzLjMgKDExOTcwKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5pY29uLXN1Y2Nlc3MgY29weSA0PC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9Im1vYmlsZSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc2tldGNoOnR5cGU9Ik1TUGFnZSI+CiAgICAgICAgPGcgaWQ9IlNpZ24tdXAtaVBob25lLTYtc3VjY2VzcyIgc2tldGNoOnR5cGU9Ik1TQXJ0Ym9hcmRHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMxNS4wMDAwMDAsIC0yNDUuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSJpY29uLXN1Y2Nlc3MtY29weS00IiBza2V0Y2g6dHlwZT0iTVNMYXllckdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMTUuMDAwMDAwLCAyNDUuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8ZWxsaXBzZSBpZD0iT3ZhbC0xIiBmaWxsPSIjOENCQzQ1IiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIiBjeD0iMTAuNzA3NjkyMyIgY3k9IjEwLjcxNDI4NTciIHJ4PSIxMC43MDc2OTIzIiByeT0iMTAuNzE0Mjg1NyI+PC9lbGxpcHNlPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTUuNjEwMjYyNjgsMTIuOTIzNTc4IEw2LjYyNzIyNDM4LDExLjc3NTc5NSBMOS4yNTA5OTg2MywxMy41NjcwODE4IEwxNS4zODY4MDA1LDYuNzI1MDY2MzggTDE2LjY5NzQyOTYsNy42MTE3ODM3MSBMOS41MzY5OTY4MSwxNS41OTYzNjIyIEw1LjYxMDI2MjY4LDEyLjkyMzU3OCBMNS42MTAyNjI2OCwxMi45MjM1NzggWiIgaWQ9IuKcky1jb3B5IiBmaWxsPSIjRkZGRkZGIiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIj48L3BhdGg+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg=="
 
 /***/ },
 /* 21 */
@@ -22590,6 +22590,9 @@
 	      value: value
 	    };
 
+	    // merge all data-props:
+	    instance._mergeDataAttrs(inputProps);
+
 	    return _react2.default.createElement(
 	      "div",
 	      { className: wrapperClass },
@@ -22602,6 +22605,25 @@
 	      ),
 	      help
 	    );
+	  },
+
+	  /**
+	   * Merges the `data-*` attributes from props into the object
+	   *
+	   * @method _mergeDataAttrs
+	   * @param inputProps {object} the source props which will be extended
+	   * @private
+	   * @return object all the data-* attributes
+	   * @since 0.2.0
+	   */
+	  _mergeDataAttrs: function _mergeDataAttrs(inputProps) {
+	    var dataAttrs = {};
+	    var props = this.props,
+	        keys = Object.keys(props);
+
+	    keys.forEach(function (key) {
+	      key.substr(0, 5).toLowerCase() === "data-" && (inputProps[key] = props[key]);
+	    });
 	  }
 	});
 
