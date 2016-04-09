@@ -44,6 +44,15 @@ const Input = React.createClass({
         errorMsg: PropTypes.string,
 
         /**
+         * Whether the component is disabled
+         *
+         * @property disabled
+         * @type Boolean
+         * @since 0.0.1
+        */
+        disabled: PropTypes.bool,
+
+        /**
          * Whether the parent-form has been validated.
          * This value is needed to determine if the validate-status should be set.
          *
@@ -367,6 +376,7 @@ const Input = React.createClass({
             value = props.value || "",
             type = props.type || "text",
             readOnly = props.readOnly || false,
+            disabled = props.disabled || false,
             errored = (!instance.changed &&
                 (props.validated===false) &&
                 props.formValidated);
@@ -392,10 +402,12 @@ const Input = React.createClass({
         }
 
         inputProps = {
+            "aria-disabled": disabled,
             "aria-invalid": errored,
             "aria-readonly": readOnly,
             "aria-required": ariaRequired,
             className: MAIN_CLASS_PREFIX+ELEMENT,
+            disabled,
             id: props.id,
             name: props.name,
             onBlur: instance.handleBlur,

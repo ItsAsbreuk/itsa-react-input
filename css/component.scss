@@ -96,34 +96,3 @@ $color-placeholder: #CCC;
     font-size: 0.8em;
     margin: 0.2em 0 0.4em;
 }
-
-.itsa-input-required-msg-before,
-.itsa-input-required-msg-after {
-    position: relative;
-    margin-top: 1em;
-}
-
-.itsa-input-required-msg-before {
-    padding-left: 1em;
-}
-
-.itsa-input-required-msg-after {
-    padding-right: 1em;
-}
-
-.itsa-input-required-msg-before::before,
-.itsa-input-required-msg-after::after {
-    position: absolute;
-    content: "*";
-    font-size: 2em;
-    top: 0;
-    color: $color-required-star;
-}
-
-.itsa-input-required-msg-before::before {
-    left: 0;
-}
-
-.itsa-input-required-msg-after::after {
-    right: 0;
-}
