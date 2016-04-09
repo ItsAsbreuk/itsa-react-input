@@ -33,10 +33,12 @@ describe("React Component", function () {
             <div className="itsa-input">
               <div className="itsa-input-inputbox">
                 <input
+                  aria-disabled={false}
                   aria-invalid={false}
                   aria-readonly={false}
                   aria-required={undefined}
                   className="itsa-input-element"
+                  disabled={false}
                   id={undefined}
                   name={undefined}
                   onBlur={function noRefCheck() {}}
@@ -66,10 +68,12 @@ describe("React Component", function () {
             <div className="itsa-input">
               <div className="itsa-input-inputbox">
                 <input
+                  aria-disabled={false}
                   aria-invalid={false}
                   aria-readonly={false}
                   aria-required={undefined}
                   className="itsa-input-element"
+                  disabled={false}
                   id={undefined}
                   name={undefined}
                   onBlur={function noRefCheck() {}}
@@ -99,10 +103,12 @@ describe("React Component", function () {
             <div className="itsa-input">
               <div className="itsa-input-inputbox">
                 <input
+                  aria-disabled={false}
                   aria-invalid={false}
                   aria-readonly={false}
                   aria-required={undefined}
                   className="itsa-input-element"
+                  disabled={false}
                   id={undefined}
                   name={undefined}
                   onBlur={function noRefCheck() {}}
@@ -143,10 +149,12 @@ describe("React Component", function () {
             <div className="itsa-input itsa-input-required">
               <div className="itsa-input-inputbox">
                 <input
+                  aria-disabled={false}
                   aria-invalid={false}
                   aria-readonly={false}
                   aria-required={true}
                   className="itsa-input-element"
+                  disabled={false}
                   id="id1"
                   name="comp-name"
                   onBlur={function noRefCheck() {}}
@@ -199,10 +207,12 @@ describe("React Component", function () {
             <div className="itsa-input">
               <div className="itsa-input-inputbox">
                 <input
+                  aria-disabled={false}
                   aria-invalid={false}
                   aria-readonly={false}
                   aria-required={undefined}
                   className="itsa-input-element"
+                  disabled={false}
                   id={undefined}
                   name={undefined}
                   onBlur={function noRefCheck() {}}
@@ -239,10 +249,12 @@ describe("React Component", function () {
             <div className="itsa-input itsa-input-error">
               <div className="itsa-input-inputbox">
                 <input
+                  aria-disabled={false}
                   aria-invalid={true}
                   aria-readonly={false}
                   aria-required={undefined}
                   className="itsa-input-element"
+                  disabled={false}
                   id={undefined}
                   name={undefined}
                   onBlur={function noRefCheck() {}}

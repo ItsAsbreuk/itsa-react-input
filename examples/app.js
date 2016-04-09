@@ -268,7 +268,7 @@
 	 * Validation
 	 *******************************************************/
 	var validate = function validate(value, validators) {
-	    var valid = undefined;
+	    var valid = void 0;
 	    if (!validators) {
 	        return true;
 	    }
@@ -668,7 +668,6 @@
 	function applyToTag(styleElement, obj) {
 		var css = obj.css;
 		var media = obj.media;
-		var sourceMap = obj.sourceMap;
 
 		if(media) {
 			styleElement.setAttribute("media", media)
@@ -686,7 +685,6 @@
 
 	function updateLink(linkElement, obj) {
 		var css = obj.css;
-		var media = obj.media;
 		var sourceMap = obj.sourceMap;
 
 		if(sourceMap) {
@@ -2506,7 +2504,7 @@
 
 
 	// module
-	exports.push([module.id, ".itsa-input {\n  position: relative;\n  width: 15em;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n  .itsa-input input {\n    width: 100% !important;\n    display: block !important;\n    margin: 0 !important;\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box; }\n  .itsa-input input::-webkit-input-placeholder {\n    /* WebKit, Blink, Edge */\n    color: #CCC; }\n  .itsa-input input:-moz-placeholder {\n    /* Mozilla Firefox 4 to 18 */\n    color: #CCC;\n    opacity: 1; }\n  .itsa-input input::-moz-placeholder {\n    /* Mozilla Firefox 19+ */\n    color: #CCC;\n    opacity: 1; }\n  .itsa-input input:-ms-input-placeholder {\n    /* Internet Explorer 10-11 */\n    color: #CCC; }\n  .itsa-input input:placeholder-shown {\n    /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */\n    color: #CCC; }\n\n.itsa-input-required::after {\n  content: \"*\";\n  position: absolute;\n  font-size: 2em;\n  top: 0.1em;\n  right: 0;\n  color: #FF6A6A; }\n\n.itsa-input-feedback-success::after {\n  content: url(" + __webpack_require__(20) + ");\n  position: absolute;\n  top: 0.1em;\n  right: 0; }\n\n.itsa-input-inputbox {\n  position: relative; }\n\n.itsa-input-error input {\n  border-color: #FF6A6A !important;\n  -webkit-transition: all 0.2s ease-out 0s;\n  -moz-transition: all 0.2s ease-out 0s;\n  -ms-transition: all 0.2s ease-out 0s;\n  -o-transition: all 0.2s ease-out 0s;\n  transition: all 0.2s ease-out 0s; }\n\n.itsa-input-error-text {\n  color: #F34F4F;\n  font-size: 0.8em;\n  line-height: 1em;\n  margin: 0;\n  opacity: 1;\n  position: absolute;\n  z-index: 1;\n  background-color: #F9F9F9;\n  border: 1px solid #FF6A6A;\n  bottom: -0.7em;\n  left: auto;\n  padding: 0.15em 0.4em 0.1em;\n  right: 0.2em;\n  -webkit-transition: all 0.2s ease-out 0s;\n  -moz-transition: all 0.2s ease-out 0s;\n  -ms-transition: all 0.2s ease-out 0s;\n  -o-transition: all 0.2s ease-out 0s;\n  transition: all 0.2s ease-out 0s; }\n\n.itsa-input-help-text {\n  color: #999;\n  font-size: 0.8em;\n  margin: 0.2em 0 0.4em; }\n\n.itsa-input-required-msg-before,\n.itsa-input-required-msg-after {\n  position: relative;\n  margin-top: 1em; }\n\n.itsa-input-required-msg-before {\n  padding-left: 1em; }\n\n.itsa-input-required-msg-after {\n  padding-right: 1em; }\n\n.itsa-input-required-msg-before::before,\n.itsa-input-required-msg-after::after {\n  position: absolute;\n  content: \"*\";\n  font-size: 2em;\n  top: 0;\n  color: #FF6A6A; }\n\n.itsa-input-required-msg-before::before {\n  left: 0; }\n\n.itsa-input-required-msg-after::after {\n  right: 0; }\n", ""]);
+	exports.push([module.id, ".itsa-input {\n  position: relative;\n  width: 15em;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n  .itsa-input input {\n    width: 100% !important;\n    display: block !important;\n    margin: 0 !important;\n    -webkit-box-sizing: border-box;\n    -moz-box-sizing: border-box;\n    box-sizing: border-box; }\n  .itsa-input input::-webkit-input-placeholder {\n    /* WebKit, Blink, Edge */\n    color: #CCC; }\n  .itsa-input input:-moz-placeholder {\n    /* Mozilla Firefox 4 to 18 */\n    color: #CCC;\n    opacity: 1; }\n  .itsa-input input::-moz-placeholder {\n    /* Mozilla Firefox 19+ */\n    color: #CCC;\n    opacity: 1; }\n  .itsa-input input:-ms-input-placeholder {\n    /* Internet Explorer 10-11 */\n    color: #CCC; }\n  .itsa-input input:placeholder-shown {\n    /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */\n    color: #CCC; }\n\n.itsa-input-required::after {\n  content: \"*\";\n  position: absolute;\n  font-size: 2em;\n  top: 0.1em;\n  right: 0;\n  color: #FF6A6A; }\n\n.itsa-input-feedback-success::after {\n  content: url(" + __webpack_require__(20) + ");\n  position: absolute;\n  top: 0.1em;\n  right: 0; }\n\n.itsa-input-inputbox {\n  position: relative; }\n\n.itsa-input-error input {\n  border-color: #FF6A6A !important;\n  -webkit-transition: all 0.2s ease-out 0s;\n  -moz-transition: all 0.2s ease-out 0s;\n  -ms-transition: all 0.2s ease-out 0s;\n  -o-transition: all 0.2s ease-out 0s;\n  transition: all 0.2s ease-out 0s; }\n\n.itsa-input-error-text {\n  color: #F34F4F;\n  font-size: 0.8em;\n  line-height: 1em;\n  margin: 0;\n  opacity: 1;\n  position: absolute;\n  z-index: 1;\n  background-color: #F9F9F9;\n  border: 1px solid #FF6A6A;\n  bottom: -0.7em;\n  left: auto;\n  padding: 0.15em 0.4em 0.1em;\n  right: 0.2em;\n  -webkit-transition: all 0.2s ease-out 0s;\n  -moz-transition: all 0.2s ease-out 0s;\n  -ms-transition: all 0.2s ease-out 0s;\n  -o-transition: all 0.2s ease-out 0s;\n  transition: all 0.2s ease-out 0s; }\n\n.itsa-input-help-text {\n  color: #999;\n  font-size: 0.8em;\n  margin: 0.2em 0 0.4em; }\n", ""]);
 
 	// exports
 
@@ -10420,6 +10418,10 @@
 	  }
 	};
 
+	function registerNullComponentID() {
+	  ReactEmptyComponentRegistry.registerNullComponentID(this._rootNodeID);
+	}
+
 	var ReactEmptyComponent = function ReactEmptyComponent(instantiate) {
 	  this._currentElement = null;
 	  this._rootNodeID = null;
@@ -10428,7 +10430,7 @@
 	assign(ReactEmptyComponent.prototype, {
 	  construct: function construct(element) {},
 	  mountComponent: function mountComponent(rootID, transaction, context) {
-	    ReactEmptyComponentRegistry.registerNullComponentID(rootID);
+	    transaction.getReactMountReady().enqueue(registerNullComponentID, this);
 	    this._rootNodeID = rootID;
 	    return ReactReconciler.mountComponent(this._renderedComponent, rootID, transaction, context);
 	  },
@@ -11780,6 +11782,7 @@
 	 */
 	var EventInterface = {
 	  type: null,
+	  target: null,
 	  // currentTarget is set when dispatching; no use in copying it here
 	  currentTarget: emptyFunction.thatReturnsNull,
 	  eventPhase: null,
@@ -11813,8 +11816,6 @@
 	  this.dispatchConfig = dispatchConfig;
 	  this.dispatchMarker = dispatchMarker;
 	  this.nativeEvent = nativeEvent;
-	  this.target = nativeEventTarget;
-	  this.currentTarget = nativeEventTarget;
 
 	  var Interface = this.constructor.Interface;
 	  for (var propName in Interface) {
@@ -11825,7 +11826,11 @@
 	    if (normalize) {
 	      this[propName] = normalize(nativeEvent);
 	    } else {
-	      this[propName] = nativeEvent[propName];
+	      if (propName === 'target') {
+	        this.target = nativeEventTarget;
+	      } else {
+	        this[propName] = nativeEvent[propName];
+	      }
 	    }
 	  }
 
@@ -15684,7 +15689,10 @@
 	      }
 	    });
 
-	    nativeProps.children = content;
+	    if (content) {
+	      nativeProps.children = content;
+	    }
+
 	    return nativeProps;
 	  }
 
@@ -21171,7 +21179,7 @@
 
 	'use strict';
 
-	module.exports = '0.14.6';
+	module.exports = '0.14.8';
 
 /***/ },
 /* 170 */
@@ -22191,6 +22199,7 @@
 	var Input = _react2.default.createClass({
 	  displayName: "Input",
 
+
 	  propTypes: {
 	    /**
 	     * Whether to autofocus the Component.
@@ -22209,6 +22218,15 @@
 	     * @since 0.0.1
 	    */
 	    errorMsg: _react.PropTypes.string,
+
+	    /**
+	     * Whether the component is disabled
+	     *
+	     * @property disabled
+	     * @type Boolean
+	     * @since 0.0.1
+	    */
+	    disabled: _react.PropTypes.bool,
 
 	    /**
 	     * Whether the parent-form has been validated.
@@ -22387,6 +22405,7 @@
 	    instance.props.autoFocus && instance.focus();
 	  },
 
+
 	  /**
 	   * Returns the rendered React-Element that serves as the source dom-element
 	   *
@@ -22398,6 +22417,7 @@
 	  element: function element(props) {
 	    return _react2.default.createElement("input", props);
 	  },
+
 
 	  /**
 	   * Gets the Component"s internal state. Note, that the this is NOT Redux"s state.
@@ -22412,6 +22432,7 @@
 	    };
 	  },
 
+
 	  /**
 	   * Sets the focus on the Component.
 	   *
@@ -22423,6 +22444,7 @@
 	    this._inputNode.focus();
 	    return this;
 	  },
+
 
 	  /**
 	   * The method that is called whenever the input-Element gets blurred.
@@ -22441,6 +22463,7 @@
 	    this.props.onBlur && this.props.onBlur(e);
 	  },
 
+
 	  /**
 	   * The method that is called whenever the input-Element changes its value.
 	   * Will update the Redux-store (signupuser.homeaddress);
@@ -22456,6 +22479,7 @@
 	    }
 	  },
 
+
 	  /**
 	   * The method that is called whenever the input-Element gets clicked.
 	   *
@@ -22466,6 +22490,7 @@
 	  handleClick: function handleClick(e) {
 	    this.props.onClick(e);
 	  },
+
 
 	  /**
 	   * The method that is called whenever the input-Element gets the focus.
@@ -22484,6 +22509,7 @@
 	    this.props.onFocus && this.props.onFocus(e);
 	  },
 
+
 	  /**
 	   * The method that is called whenever the input-Element recieves a keyDown.
 	   *
@@ -22494,6 +22520,7 @@
 	  handleKeyDown: function handleKeyDown(e) {
 	    this.props.onKeyDown(e);
 	  },
+
 
 	  /**
 	   * The method that is called whenever the input-Element recieves a keyPress.
@@ -22506,6 +22533,7 @@
 	    this.props.onKeyPress(e);
 	  },
 
+
 	  /**
 	   * The method that is called whenever the input-Element recieves a keyUp.
 	   *
@@ -22517,6 +22545,7 @@
 	    this.props.onKeyUp(e);
 	  },
 
+
 	  /**
 	   * React render-method --> renderes the Component.
 	   *
@@ -22526,19 +22555,20 @@
 	   */
 	  render: function render() {
 	    var wrapperClass = MAIN_CLASS,
-	        label = undefined,
-	        errorMsg = undefined,
-	        help = undefined,
-	        labelClass = undefined,
-	        inputProps = undefined,
-	        maskComponent = undefined,
-	        ariaRequired = undefined;
+	        label = void 0,
+	        errorMsg = void 0,
+	        help = void 0,
+	        labelClass = void 0,
+	        inputProps = void 0,
+	        maskComponent = void 0,
+	        ariaRequired = void 0;
 	    var instance = this,
 	        props = instance.props,
 	        element = props.element || instance.element,
 	        value = props.value || "",
 	        type = props.type || "text",
 	        readOnly = props.readOnly || false,
+	        disabled = props.disabled || false,
 	        errored = !instance.changed && props.validated === false && props.formValidated;
 
 	    props.className && (wrapperClass += " " + props.className);
@@ -22569,10 +22599,12 @@
 	    }
 
 	    inputProps = {
+	      "aria-disabled": disabled,
 	      "aria-invalid": errored,
 	      "aria-readonly": readOnly,
 	      "aria-required": ariaRequired,
 	      className: MAIN_CLASS_PREFIX + ELEMENT,
+	      disabled: disabled,
 	      id: props.id,
 	      name: props.name,
 	      onBlur: instance.handleBlur,
@@ -22606,6 +22638,7 @@
 	      help
 	    );
 	  },
+
 
 	  /**
 	   * Merges the `data-*` attributes from props into the object
@@ -22723,6 +22756,7 @@
 
 	var Input = _react2.default.createClass({
 	    displayName: "Input",
+
 
 	    propTypes: {
 	        /**
@@ -22866,6 +22900,7 @@
 	        instance.props.autoFocus && instance.focus();
 	    },
 
+
 	    /**
 	     * Returns the rendered React-Element that serves as the source dom-element
 	     *
@@ -22877,6 +22912,7 @@
 	    element: function element(props) {
 	        return _react2.default.createElement("input", props);
 	    },
+
 
 	    /**
 	     * Gets the Component"s internal state. Note, that the this is NOT Redux"s state.
@@ -22891,6 +22927,7 @@
 	        };
 	    },
 
+
 	    /**
 	     * Sets the focus on the Component.
 	     *
@@ -22902,6 +22939,7 @@
 	        this._inputNode.focus();
 	        return this;
 	    },
+
 
 	    /**
 	     * The method that is called whenever the input-Element changes its value.
@@ -22917,6 +22955,7 @@
 	            this.props.onChange(e);
 	        }
 	    },
+
 
 	    /**
 	     * The method that is called whenever the input-Element gets the focus.
@@ -22934,6 +22973,7 @@
 	        });
 	    },
 
+
 	    /**
 	     * The method that is called whenever the input-Element gets blurred.
 	     * It will change its internal state, so that the css looks right and
@@ -22950,6 +22990,7 @@
 	        });
 	    },
 
+
 	    /**
 	     * React render-method --> renderes the Component.
 	     *
@@ -22959,12 +23000,12 @@
 	     */
 	    render: function render() {
 	        var wrapperClass = MAIN_CLASS,
-	            label = undefined,
-	            errorMsg = undefined,
-	            help = undefined,
-	            labelClass = undefined,
-	            inputProps = undefined,
-	            maskComponent = undefined;
+	            label = void 0,
+	            errorMsg = void 0,
+	            help = void 0,
+	            labelClass = void 0,
+	            inputProps = void 0,
+	            maskComponent = void 0;
 	        var instance = this,
 	            props = instance.props,
 	            element = props.element || instance.element,
@@ -23035,10 +23076,28 @@
 
 	'use strict';
 
+	var _extends = Object.assign || function (target) {
+	  for (var i = 1; i < arguments.length; i++) {
+	    var source = arguments[i];for (var key in source) {
+	      if (Object.prototype.hasOwnProperty.call(source, key)) {
+	        target[key] = source[key];
+	      }
+	    }
+	  }return target;
+	};
+
+	function _objectWithoutProperties(obj, keys) {
+	  var target = {};for (var i in obj) {
+	    if (keys.indexOf(i) >= 0) continue;if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;target[i] = obj[i];
+	  }return target;
+	}
+
 	var React = __webpack_require__(25);
-	var $__0 = __webpack_require__(149),
-	    getSelection = $__0.getSelection,
-	    setSelection = $__0.setSelection;
+
+	var _require = __webpack_require__(149);
+
+	var getSelection = _require.getSelection;
+	var setSelection = _require.setSelection;
 
 	var InputMask = __webpack_require__(187);
 
@@ -23053,7 +23112,9 @@
 	  return (e.ctrlKey || e.metaKey) && e.keyCode === (e.shiftKey ? KEYCODE_Z : KEYCODE_Y);
 	}
 
-	var MaskedInput = React.createClass({ displayName: "MaskedInput",
+	var MaskedInput = React.createClass({
+	  displayName: 'MaskedInput',
+
 	  propTypes: {
 	    mask: React.PropTypes.string.isRequired,
 
@@ -23080,6 +23141,9 @@
 	  },
 
 	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    if (this.props.value !== nextProps.value) {
+	      this.mask.setValue(nextProps.value);
+	    }
 	    if (this.props.mask !== nextProps.mask) {
 	      this.mask.setPattern(nextProps.mask, { value: this.mask.getRawValue() });
 	    }
@@ -23097,7 +23161,7 @@
 	    // console.log('onChange', JSON.stringify(getSelection(this.input)), e.target.value)
 
 	    var maskValue = this.mask.getValue();
-	    if (e.target.value != maskValue) {
+	    if (e.target.value !== maskValue) {
 	      // Cut or delete operations will have shortened the value
 	      if (e.target.value.length < maskValue.length) {
 	        var sizeDiff = maskValue.length - e.target.value.length;
@@ -23137,7 +23201,7 @@
 	      return;
 	    }
 
-	    if (e.key == 'Backspace') {
+	    if (e.key === 'Backspace') {
 	      e.preventDefault();
 	      this._updateMaskSelection();
 	      if (this.mask.backspace()) {
@@ -23155,7 +23219,8 @@
 	    // console.log('onKeyPress', JSON.stringify(getSelection(this.input)), e.key, e.target.value)
 
 	    // Ignore modified key presses
-	    if (e.metaKey || e.altKey || e.ctrlKey) {
+	    // Ignore enter key to allow form submission
+	    if (e.metaKey || e.altKey || e.ctrlKey || e.key === 'Enter') {
 	      return;
 	    }
 
@@ -23188,24 +23253,21 @@
 	  },
 
 	  render: function render() {
-	    var $__0 = this.props,
-	        mask = $__0.mask,
-	        formatCharacters = $__0.formatCharacters,
-	        size = $__0.size,
-	        placeholder = $__0.placeholder,
-	        props = function (source, exclusion) {
-	      var rest = {};var hasOwn = Object.prototype.hasOwnProperty;if (source == null) {
-	        throw new TypeError();
-	      }for (var key in source) {
-	        if (hasOwn.call(source, key) && !hasOwn.call(exclusion, key)) {
-	          rest[key] = source[key];
-	        }
-	      }return rest;
-	    }($__0, { mask: 1, formatCharacters: 1, size: 1, placeholder: 1 });
+	    var _this = this;
+
+	    var _props = this.props;
+	    var mask = _props.mask;
+	    var formatCharacters = _props.formatCharacters;
+	    var size = _props.size;
+	    var placeholder = _props.placeholder;
+
+	    var props = _objectWithoutProperties(_props, ['mask', 'formatCharacters', 'size', 'placeholder']);
+
 	    var patternLength = this.mask.pattern.length;
-	    return React.createElement("input", React.__spread({}, props, { ref: function (r) {
-	        return this.input = r;
-	      }.bind(this),
+	    return React.createElement('input', _extends({}, props, {
+	      ref: function ref(r) {
+	        return _this.input = r;
+	      },
 	      maxLength: patternLength,
 	      onChange: this._onChange,
 	      onKeyDown: this._onKeyDown,
@@ -23213,7 +23275,8 @@
 	      onPaste: this._onPaste,
 	      placeholder: placeholder || this.mask.emptyValue,
 	      size: size || patternLength,
-	      value: this._getDisplayValue() }));
+	      value: this._getDisplayValue()
+	    }));
 	  }
 	});
 
@@ -23771,6 +23834,7 @@
 	var Checkbox = _react2.default.createClass({
 	  displayName: "Checkbox",
 
+
 	  propTypes: {
 	    /**
 	     * Whether to autofocus the Component.
@@ -23955,6 +24019,7 @@
 	    instance.props.autoFocus && instance.focus();
 	  },
 
+
 	  /**
 	   * Sets the focus on the Component.
 	   *
@@ -23966,6 +24031,7 @@
 	    this._domNode.focus();
 	    return this;
 	  },
+
 
 	  /**
 	   * Returns the initial state.
@@ -23981,6 +24047,7 @@
 	    };
 	  },
 
+
 	  /**
 	   * React render-method --> renderes the Component.
 	   *
@@ -23991,16 +24058,16 @@
 	  render: function render() {
 
 	    var classNameContainer = MAIN_CLASS_PREFIX + "container",
-	        elementStyles = undefined,
-	        constrainStyles = undefined,
-	        constainerStyles = undefined,
-	        labelStylesOn = undefined,
-	        labelStylesOff = undefined,
-	        labelWidth = undefined,
-	        elementWidth = undefined,
-	        constrainWidth = undefined,
-	        btnStyles = undefined,
-	        className = undefined;
+	        elementStyles = void 0,
+	        constrainStyles = void 0,
+	        constainerStyles = void 0,
+	        labelStylesOn = void 0,
+	        labelStylesOff = void 0,
+	        labelWidth = void 0,
+	        elementWidth = void 0,
+	        constrainWidth = void 0,
+	        btnStyles = void 0,
+	        className = void 0;
 
 	    var instance = this,
 	        // optimize for uglifyjs which cannot compress `this`
@@ -24127,9 +24194,12 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var MAIN_CLASS_PREFIX = "itsa-checkbox-",
+	    ON = "on",
 	    MOUSE = "mouse",
 	    MOUSEUP = MOUSE + "up",
 	    MOUSEMOVE = MOUSE + "move";
+
+	var IE8_Events = void 0;
 
 	var checkboxEvents = {
 
@@ -24144,10 +24214,12 @@
 	    componentDidMount: function componentDidMount() {
 	        var instance = this;
 	        instance._node = _reactDom2.default.findDOMNode(this);
+	        IE8_Events = !instance._node.addEventListener;
 	        instance._constrainNode = instance._node.querySelector("." + MAIN_CLASS_PREFIX + "constrain");
 	        instance._containerNode = instance._node.querySelector("." + MAIN_CLASS_PREFIX + "container");
 	        instance._btnNode = instance._node.querySelector("." + MAIN_CLASS_PREFIX + "btn");
 	    },
+
 
 	    /**
 	     * Gets invoked before the Component gets unmounted.
@@ -24160,6 +24232,7 @@
 	        this.detachDragEvents();
 	    },
 
+
 	    /**
 	     * Detaches some window-eventlisteners.
 	     *
@@ -24168,10 +24241,16 @@
 	     * @since 0.0.1
 	     */
 	    detachDragEvents: function detachDragEvents() {
-	        window.removeEventListener(MOUSEMOVE, this.handleMouseMove, true);
-	        window.removeEventListener(MOUSEUP, this.handleMouseUp, true);
+	        if (IE8_Events) {
+	            window.detachEvent(ON + MOUSEMOVE, this.handleMouseMove);
+	            window.detachEvent(ON + MOUSEUP, this.handleMouseUp);
+	        } else {
+	            window.removeEventListener(MOUSEMOVE, this.handleMouseMove, true);
+	            window.removeEventListener(MOUSEUP, this.handleMouseUp, true);
+	        }
 	        return this;
 	    },
+
 
 	    /**
 	     * Callback-fn for the onBlur-event.
@@ -24183,6 +24262,7 @@
 	    handleBlur: function handleBlur() {
 	        this._focussed = false;
 	    },
+
 
 	    /**
 	     * Callback-fn for the onClick-event.
@@ -24199,6 +24279,7 @@
 	        instance._wasDragged = false;
 	    },
 
+
 	    /**
 	     * Callback-fn for the onFocus-event.
 	     * sets internal `_focussed`-property true
@@ -24209,6 +24290,7 @@
 	    handleFocus: function handleFocus() {
 	        this._focussed = true;
 	    },
+
 
 	    /**
 	     * Callback-fn for the onKeyPress-event.
@@ -24223,6 +24305,7 @@
 	            this.handleClick();
 	        }
 	    },
+
 
 	    /**
 	     * Callback-fn for the onMouseDown-event.
@@ -24245,6 +24328,7 @@
 	        }
 	    },
 
+
 	    /**
 	     * Callback-fn for the onMouseMove-event.
 	     * Handles dragging of the button.
@@ -24254,7 +24338,7 @@
 	     * @since 0.0.1
 	     */
 	    handleMouseMove: function handleMouseMove(e) {
-	        var newPos = undefined;
+	        var newPos = void 0;
 	        var instance = this;
 	        if (instance._mousedown) {
 	            instance._wasDragged = true;
@@ -24271,6 +24355,7 @@
 	        }
 	    },
 
+
 	    /**
 	     * Callback-fn for the onMouseUp-event.
 	     * Finalizes button-dragging.
@@ -24280,12 +24365,12 @@
 	     * @since 0.0.1
 	     */
 	    handleMouseUp: function handleMouseUp(noDetach) {
-	        var elementLeft = undefined,
-	            btnLeft = undefined,
-	            elementHalfWidth = undefined,
-	            btnHalfWidth = undefined,
-	            btnInsideLeftArea = undefined,
-	            stateChanged = undefined;
+	        var elementLeft = void 0,
+	            btnLeft = void 0,
+	            elementHalfWidth = void 0,
+	            btnHalfWidth = void 0,
+	            btnInsideLeftArea = void 0,
+	            stateChanged = void 0;
 	        var instance = this;
 	        noDetach === true || instance.detachDragEvents();
 	        instance._mousedown = false;
@@ -24307,6 +24392,7 @@
 	        });
 	    },
 
+
 	    /**
 	     * Callback-fn for the onTouchMove-event.
 	     * Handles dragging of the button on mobile devices.
@@ -24323,6 +24409,7 @@
 	            transitioned: false
 	        });
 	    },
+
 
 	    /**
 	     * Callback-fn for the onTouchStart-event.
@@ -24341,6 +24428,7 @@
 	        });
 	    },
 
+
 	    /**
 	     * Sets some window-eventlisteners.
 	     *
@@ -24349,8 +24437,13 @@
 	     * @since 0.0.1
 	     */
 	    setDragEvents: function setDragEvents() {
-	        window.addEventListener(MOUSEMOVE, this.handleMouseMove, true);
-	        window.addEventListener(MOUSEUP, this.handleMouseUp, true);
+	        if (IE8_Events) {
+	            window.attachEvent(ON + MOUSEMOVE, this.handleMouseMove);
+	            window.attachEvent(ON + MOUSEUP, this.handleMouseUp);
+	        } else {
+	            window.addEventListener(MOUSEMOVE, this.handleMouseMove, true);
+	            window.addEventListener(MOUSEUP, this.handleMouseUp, true);
+	        }
 	        return this;
 	    }
 	};
@@ -24503,6 +24596,7 @@
 	var Input = _react2.default.createClass({
 	    displayName: "Input",
 
+
 	    propTypes: {
 	        /**
 	         * Whether to autofocus the Component.
@@ -24645,6 +24739,7 @@
 	        instance.props.autoFocus && instance.focus();
 	    },
 
+
 	    /**
 	     * Returns the rendered React-Element that serves as the source dom-element
 	     *
@@ -24656,6 +24751,7 @@
 	    element: function element(props) {
 	        return _react2.default.createElement("input", props);
 	    },
+
 
 	    /**
 	     * Gets the Component"s internal state. Note, that the this is NOT Redux"s state.
@@ -24670,6 +24766,7 @@
 	        };
 	    },
 
+
 	    /**
 	     * Sets the focus on the Component.
 	     *
@@ -24681,6 +24778,7 @@
 	        this._inputNode.focus();
 	        return this;
 	    },
+
 
 	    /**
 	     * The method that is called whenever the input-Element changes its value.
@@ -24696,6 +24794,7 @@
 	            this.props.onChange(e);
 	        }
 	    },
+
 
 	    /**
 	     * The method that is called whenever the input-Element gets the focus.
@@ -24713,6 +24812,7 @@
 	        });
 	    },
 
+
 	    /**
 	     * The method that is called whenever the input-Element gets blurred.
 	     * It will change its internal state, so that the css looks right and
@@ -24729,6 +24829,7 @@
 	        });
 	    },
 
+
 	    /**
 	     * React render-method --> renderes the Component.
 	     *
@@ -24738,12 +24839,12 @@
 	     */
 	    render: function render() {
 	        var wrapperClass = MAIN_CLASS,
-	            label = undefined,
-	            errorMsg = undefined,
-	            help = undefined,
-	            labelClass = undefined,
-	            inputProps = undefined,
-	            maskComponent = undefined;
+	            label = void 0,
+	            errorMsg = void 0,
+	            help = void 0,
+	            labelClass = void 0,
+	            inputProps = void 0,
+	            maskComponent = void 0;
 	        var instance = this,
 	            props = instance.props,
 	            element = props.element || instance.element,
