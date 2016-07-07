@@ -1,8 +1,8 @@
 "use strict";
 
 import "purecss";
-import "js-ext/lib/object";
-import "js-ext/lib/string";
+import "itsa-jsext/lib/object";
+import "itsa-jsext/lib/string";
 
 import "itsa-react-checkbox/css/component.scss";
 import "./css/component.scss";
@@ -26,6 +26,8 @@ const MyForm = React.createClass({
     focusUnvalidated() {
         const instance = this;
         const validated = instance.props.validated;
+        console.info('instance.refs', instance.refs);
+        console.info(instance);
         if (!validated.name) {
             instance.refs.name.focus();
         }
@@ -230,7 +232,7 @@ const validatorsDefinition = {
     },
 
     email(val) {
-        return val.validateEmail(); // comes from itsa/lib/string
+        return val.itsa_isValidEmail(); // comes from itsa/lib/string
     },
 
     password(val) {
@@ -247,7 +249,7 @@ const validatorsDefinition = {
 };
 
 const validateProps = props => {
-    props.each((value, key) => {
+    props.itsa_each((value, key) => {
         // only inspect primary type-properties
         if (typeof props[key]!=="object") {
             props.validated[key] = validate(props[key], props.validators[key]);

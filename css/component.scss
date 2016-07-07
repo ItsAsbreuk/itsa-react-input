@@ -40,11 +40,9 @@ $color-placeholder: #CCC;
 
 }
 
-
 .itsa-input-required::after {
     content: "*";
     position: absolute;
-    font-size: 2em;
     top: 0.1em;
     right: 0;
     color: $color-required-star;

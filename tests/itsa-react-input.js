@@ -30,7 +30,10 @@ describe("React Component", function () {
         renderer.render(<Component onChange={NOOP} />);
         const actual = renderer.getRenderOutput();
         const expected = (
-            <div className="itsa-input">
+            <div className="itsa-input itsa-formelement"
+              onFocus={function noRefCheck() {}}
+              style={undefined}
+              tabIndex={undefined}>
               <div className="itsa-input-inputbox">
                 <input
                   aria-disabled={false}
@@ -43,15 +46,14 @@ describe("React Component", function () {
                   name={undefined}
                   onBlur={function noRefCheck() {}}
                   onChange={function noRefCheck() {}}
-                  onClick={undefined}
+                  onClick={function noRefCheck() {}}
                   onFocus={function noRefCheck() {}}
-                  onKeyDown={undefined}
-                  onKeyPress={undefined}
-                  onKeyUp={undefined}
+                  onKeyDown={function noRefCheck() {}}
+                  onKeyPress={function noRefCheck() {}}
+                  onKeyUp={function noRefCheck() {}}
                   placeholder={undefined}
                   readOnly={false}
                   role="textbox"
-                  tabIndex={1}
                   type="text"
                   value=""
                 />
@@ -65,7 +67,10 @@ describe("React Component", function () {
         renderer.render(<Component onChange={NOOP} value="Hello World" />);
         const actual = renderer.getRenderOutput();
         const expected = (
-            <div className="itsa-input">
+            <div className="itsa-input itsa-formelement"
+              onFocus={function noRefCheck() {}}
+              style={undefined}
+              tabIndex={undefined}>
               <div className="itsa-input-inputbox">
                 <input
                   aria-disabled={false}
@@ -78,15 +83,14 @@ describe("React Component", function () {
                   name={undefined}
                   onBlur={function noRefCheck() {}}
                   onChange={function noRefCheck() {}}
-                  onClick={undefined}
+                  onClick={function noRefCheck() {}}
                   onFocus={function noRefCheck() {}}
-                  onKeyDown={undefined}
-                  onKeyPress={undefined}
-                  onKeyUp={undefined}
+                  onKeyDown={function noRefCheck() {}}
+                  onKeyPress={function noRefCheck() {}}
+                  onKeyUp={function noRefCheck() {}}
                   placeholder={undefined}
                   role="textbox"
                   readOnly={false}
-                  tabIndex={1}
                   type="text"
                   value="Hello World"
                 />
@@ -100,7 +104,10 @@ describe("React Component", function () {
         renderer.render(<Component onChange={NOOP} type="password" value="Hello World"/>);
         const actual = renderer.getRenderOutput();
         const expected = (
-            <div className="itsa-input">
+            <div className="itsa-input itsa-formelement"
+              onFocus={function noRefCheck() {}}
+              style={undefined}
+              tabIndex={undefined}>
               <div className="itsa-input-inputbox">
                 <input
                   aria-disabled={false}
@@ -113,15 +120,14 @@ describe("React Component", function () {
                   name={undefined}
                   onBlur={function noRefCheck() {}}
                   onChange={function noRefCheck() {}}
-                  onClick={undefined}
+                  onClick={function noRefCheck() {}}
                   onFocus={function noRefCheck() {}}
-                  onKeyDown={undefined}
-                  onKeyPress={undefined}
-                  onKeyUp={undefined}
+                  onKeyDown={function noRefCheck() {}}
+                  onKeyPress={function noRefCheck() {}}
+                  onKeyUp={function noRefCheck() {}}
                   placeholder={undefined}
                   role="textbox"
                   readOnly={false}
-                  tabIndex={1}
                   type="password"
                   value="Hello World"
                 />
@@ -146,7 +152,10 @@ describe("React Component", function () {
         );
         const actual = renderer.getRenderOutput();
         const expected = (
-            <div className="itsa-input itsa-input-required">
+            <div className="itsa-input itsa-formelement itsa-input-required"
+              onFocus={function noRefCheck() {}}
+              style={undefined}
+              tabIndex={3}>
               <div className="itsa-input-inputbox">
                 <input
                   aria-disabled={false}
@@ -159,15 +168,14 @@ describe("React Component", function () {
                   name="comp-name"
                   onBlur={function noRefCheck() {}}
                   onChange={function noRefCheck() {}}
-                  onClick={undefined}
+                  onClick={function noRefCheck() {}}
                   onFocus={function noRefCheck() {}}
-                  onKeyDown={undefined}
-                  onKeyPress={undefined}
-                  onKeyUp={undefined}
+                  onKeyDown={function noRefCheck() {}}
+                  onKeyPress={function noRefCheck() {}}
+                  onKeyUp={function noRefCheck() {}}
                   placeholder="the placeholder"
                   role="textbox"
                   readOnly={false}
-                  tabIndex={3}
                   type="date"
                   value=""
                 />
@@ -204,7 +212,10 @@ describe("React Component", function () {
         );
         const actual = renderer.getRenderOutput();
         const expected = (
-            <div className="itsa-input">
+            <div className="itsa-input itsa-formelement"
+              onFocus={function noRefCheck() {}}
+              style={undefined}
+              tabIndex={undefined}>
               <div className="itsa-input-inputbox">
                 <input
                   aria-disabled={false}
@@ -217,15 +228,14 @@ describe("React Component", function () {
                   name={undefined}
                   onBlur={function noRefCheck() {}}
                   onChange={function noRefCheck() {}}
-                  onClick={undefined}
+                  onClick={function noRefCheck() {}}
                   onFocus={function noRefCheck() {}}
-                  onKeyDown={undefined}
-                  onKeyPress={undefined}
-                  onKeyUp={undefined}
+                  onKeyDown={function noRefCheck() {}}
+                  onKeyPress={function noRefCheck() {}}
+                  onKeyUp={function noRefCheck() {}}
                   placeholder={undefined}
                   role="textbox"
                   readOnly={false}
-                  tabIndex={1}
                   type="text"
                   value="Hi"
                 />
@@ -246,7 +256,10 @@ describe("React Component", function () {
         );
         const actual = renderer.getRenderOutput();
         const expected = (
-            <div className="itsa-input itsa-input-error">
+            <div className="itsa-input itsa-formelement itsa-input-error"
+              onFocus={function noRefCheck() {}}
+              style={undefined}
+              tabIndex={undefined}>
               <div className="itsa-input-inputbox">
                 <input
                   aria-disabled={false}
@@ -259,15 +272,14 @@ describe("React Component", function () {
                   name={undefined}
                   onBlur={function noRefCheck() {}}
                   onChange={function noRefCheck() {}}
-                  onClick={undefined}
+                  onClick={function noRefCheck() {}}
                   onFocus={function noRefCheck() {}}
-                  onKeyDown={undefined}
-                  onKeyPress={undefined}
-                  onKeyUp={undefined}
+                  onKeyDown={function noRefCheck() {}}
+                  onKeyPress={function noRefCheck() {}}
+                  onKeyUp={function noRefCheck() {}}
                   placeholder={undefined}
                   role="textbox"
                   readOnly={false}
-                  tabIndex={1}
                   type="text"
                   value="Hi"
                 />

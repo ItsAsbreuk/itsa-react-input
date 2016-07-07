@@ -12,6 +12,7 @@
     .itsa-input-required::after {
         top: 0.2em;
         right: 0.2em;
+        font-size: 2em;
     }
 
     .itsa-input-feedback-success::after {
@@ -27,6 +28,14 @@
     &.pure-form-aligned .itsa-input {
         display: inline-block;
         vertical-align: middle;
+    }
+
+    .itsa-input {
+        input[readonly]:focus {
+            background-color: #eee; /* menu hover bg color */
+            color: #777; /* menu text color */
+            border-color: #ccc;
+        }
     }
 
 }

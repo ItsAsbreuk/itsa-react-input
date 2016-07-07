@@ -14,13 +14,15 @@
  * @since 0.0.1
 */
 
-import React, {PropTypes} from "react";
-import ReactDom from "react-dom";
-
-const MAIN_CLASS = "itsa-input",
-      MAIN_CLASS_PREFIX = MAIN_CLASS+"-",
-      SPACED_MAIN_CLASS_PREFIX = " "+MAIN_CLASS_PREFIX,
-      ELEMENT = "element";
+const React = require("react"),
+    PropTypes = React.PropTypes,
+    ReactDom = require("react-dom"),
+    later = require("itsa-utils").later,
+    MAIN_CLASS = "itsa-input",
+    MAIN_CLASS_PREFIX = MAIN_CLASS+"-",
+    FORM_ELEMENT_CLASS_SPACED = " itsa-formelement",
+    SPACED_MAIN_CLASS_PREFIX = " "+MAIN_CLASS_PREFIX,
+    ELEMENT = "element";
 
 const Input = React.createClass({
 
@@ -33,6 +35,24 @@ const Input = React.createClass({
          * @since 0.0.1
         */
         autoFocus: PropTypes.bool,
+
+        /**
+         * The class that should be set on the element
+         *
+         * @property className
+         * @type String
+         * @since 0.0.1
+        */
+        className: PropTypes.string,
+
+        /**
+         * The class that should be set on the underlying input-element
+         *
+         * @property classNameInput
+         * @type String
+         * @since 0.0.1
+        */
+        classNameInput: PropTypes.string,
 
         /**
          * The error-message that appears when the element is wrong validated.
@@ -110,7 +130,7 @@ const Input = React.createClass({
         /**
          * The `onBlur` function, when happening on the DOM-Element.
          *
-         * @property onChange
+         * @property onBlur
          * @type Function
          * @since 0.1.0
         */
@@ -128,7 +148,7 @@ const Input = React.createClass({
         /**
          * The `onClick` function, when happening on the DOM-Element.
          *
-         * @property onChange
+         * @property onClick
          * @type Function
          * @since 0.0.1
         */
@@ -137,7 +157,7 @@ const Input = React.createClass({
         /**
          * The `onFocus` function, when happening on the DOM-Element.
          *
-         * @property onChange
+         * @property onFocus
          * @type Function
          * @since 0.1.0
         */
@@ -146,16 +166,25 @@ const Input = React.createClass({
         /**
          * The `onKeyDown` function, when happening on the DOM-Element.
          *
-         * @property onChange
+         * @property onKeyDown
          * @type Function
          * @since 0.1.0
         */
         onKeyDown: PropTypes.func,
 
         /**
+         * The `onKeyEnter` function, when the enter-key is pressed.
+         *
+         * @property onKeyEnter
+         * @type Function
+         * @since 0.1.0
+        */
+        onKeyEnter: PropTypes.func,
+
+        /**
          * The `onKeyPress` function, when happening on the DOM-Element.
          *
-         * @property onChange
+         * @property onKeyPress
          * @type Function
          * @since 0.1.0
         */
@@ -164,7 +193,7 @@ const Input = React.createClass({
         /**
          * The `onKeyUp` function, when happening on the DOM-Element.
          *
-         * @property onChange
+         * @property onKeyUp
          * @type Function
          * @since 0.1.0
         */
@@ -178,6 +207,15 @@ const Input = React.createClass({
          * @since 0.0.1
         */
         placeholder: PropTypes.string,
+
+        /**
+         * Inline style
+         *
+         * @property style
+         * @type object
+         * @since 0.0.1
+        */
+        style: PropTypes.object,
 
         /**
          * The `type` of the input-element.
@@ -226,7 +264,19 @@ const Input = React.createClass({
         const instance = this,
               domNode = ReactDom.findDOMNode(instance);
         instance._inputNode = domNode.querySelector("."+MAIN_CLASS_PREFIX+ELEMENT);
-        instance.props.autoFocus && instance.focus();
+        if (instance.props.autoFocus) {
+            instance._focusLater = later(() => instance.focus(), 50);
+        }
+    },
+
+    /**
+     * componentWilUnmount does some cleanup.
+     *
+     * @method componentWillUnmount
+     * @since 0.0.1
+     */
+    componentWillUnmount() {
+        this._focusLater && this._focusLater.cancel();
     },
 
     /**
@@ -258,11 +308,21 @@ const Input = React.createClass({
      * Sets the focus on the Component.
      *
      * @method focus
+     * @param [transitionTime] {Number} transition-time to focus the element into the view
      * @chainable
      * @since 0.0.1
      */
-    focus() {
-        this._inputNode.focus();
+    focus(transitionTime) {
+        let node, length;
+        const props = this.props;
+        if (!props.readOnly && !props.disabled) {
+            node = this._inputNode;
+            node.itsa_focus(null, null, transitionTime);
+            if (node.setSelectionRange) {
+                length = node.value.length;
+                node.setSelectionRange(length, length);
+            }
+        }
         return this;
     },
 
@@ -276,11 +336,13 @@ const Input = React.createClass({
      * @since 0.0.1
      */
     handleBlur(e) {
-        this.changed = false;
-        this.setState({
+        const instance = this,
+            props = instance.props;
+        instance.changed = false;
+        instance.setState({
             focussed: false
         });
-        this.props.onBlur && this.props.onBlur(e);
+        props.onBlur && props.onBlur(e);
     },
 
     /**
@@ -292,9 +354,11 @@ const Input = React.createClass({
      * @since 0.0.1
      */
     handleChange(e) {
-        if (!this.props.readOnly) {
-            this.changed = true;
-            this.props.onChange(e);
+        const instance = this,
+            props = instance.props;
+        if (!props.readOnly && !props.disabled) {
+            instance.changed = true;
+            props.onChange(e);
         }
     },
 
@@ -306,7 +370,21 @@ const Input = React.createClass({
      * @since 0.1.0
      */
     handleClick(e) {
-        this.props.onClick(e);
+        const props = this.props;
+        if (!props.readOnly && !props.disabled && props.onClick) {
+            props.onClick(e);
+        }
+    },
+
+    /**
+     * Callback that sets the focus to the descendent element by calling `focus()`
+     *
+     * @method handleContainerFocus
+     * @param e {Object} event-payload
+     * @since 0.1.0
+     */
+    handleContainerFocus(e) {
+        (e.target===e.currentTarget) && this.focus();
     },
 
     /**
@@ -318,12 +396,15 @@ const Input = React.createClass({
      * @param e {Object} event-payload
      * @since 0.0.1
      */
-    handleFocus() {
-        this.changed = false;
-        this.setState({
-            focussed: true
-        });
-        this.props.onFocus && this.props.onFocus(e);
+    handleFocus(e) {
+        const props = this.props;
+        if (!props.readOnly && !props.disabled) {
+            this.changed = false;
+            this.setState({
+                focussed: true
+            });
+            props.onFocus && props.onFocus(e);
+        }
     },
 
 
@@ -335,7 +416,10 @@ const Input = React.createClass({
      * @since 0.1.0
      */
     handleKeyDown(e) {
-        this.props.onKeyDown(e);
+        const props = this.props;
+        if (!props.readOnly && !props.disabled && props.onKeyDown) {
+            props.onKeyDown(e);
+        }
     },
 
     /**
@@ -346,7 +430,13 @@ const Input = React.createClass({
      * @since 0.1.0
      */
     handleKeyPress(e) {
-        this.props.onKeyPress(e);
+        const props = this.props;
+        if (!props.readOnly && !props.disabled) {
+            if (props.onKeyEnter && (e.charCode===13)) {
+                props.onKeyEnter();
+            }
+            props.onKeyPress && props.onKeyPress(e);
+        }
     },
 
     /**
@@ -357,7 +447,7 @@ const Input = React.createClass({
      * @since 0.1.0
      */
     handleKeyUp(e) {
-        this.props.onKeyUp(e);
+        this.props.onKeyUp && this.props.onKeyUp(e);
     },
 
     /**
@@ -368,8 +458,9 @@ const Input = React.createClass({
      * @since 0.0.1
      */
     render() {
-        let wrapperClass = MAIN_CLASS,
-            label, errorMsg, help, labelClass, inputProps, maskComponent, ariaRequired;
+        let wrapperClass = MAIN_CLASS+FORM_ELEMENT_CLASS_SPACED,
+            inputClass = MAIN_CLASS_PREFIX+ELEMENT,
+            label, errorMsg, help, inputProps, ariaRequired;
         const instance = this,
             props = instance.props,
             element = props.element || instance.element,
@@ -382,8 +473,11 @@ const Input = React.createClass({
                 props.formValidated);
 
         props.className && (wrapperClass+=" "+props.className);
+        props.classNameInput && (inputClass+=" "+props.classNameInput);
         errored && (wrapperClass+=SPACED_MAIN_CLASS_PREFIX+"error");
         instance.state.focused && (wrapperClass+=SPACED_MAIN_CLASS_PREFIX+"focus");
+        disabled && (wrapperClass+=" disabled");
+        readOnly && (wrapperClass+=" readonly");
 
         if (props.markValidated && !errored && !instance.state.focussed && !instance.changed && value && props.validated) {
             wrapperClass += SPACED_MAIN_CLASS_PREFIX+"feedback-success";
@@ -406,21 +500,20 @@ const Input = React.createClass({
             "aria-invalid": errored,
             "aria-readonly": readOnly,
             "aria-required": ariaRequired,
-            className: MAIN_CLASS_PREFIX+ELEMENT,
+            className: inputClass,
             disabled,
             id: props.id,
             name: props.name,
             onBlur: instance.handleBlur,
             onChange: instance.handleChange,
-            onClick: props.onClick && instance.handleClick,
+            onClick: instance.handleClick,
             onFocus: instance.handleFocus,
-            onKeyDown: props.onKeyDown && instance.handleKeyDown,
-            onKeyPress: props.onKeyPress && instance.handleKeyPress,
-            onKeyUp: props.onKeyUp && instance.handleKeyUp,
+            onKeyDown: instance.handleKeyDown,
+            onKeyPress: instance.handleKeyPress,
+            onKeyUp: instance.handleKeyUp,
             placeholder: props.placeholder,
             role: "textbox",
             readOnly,
-            tabIndex: props.tabIndex || 1,
             type,
             value
         };
@@ -429,7 +522,11 @@ const Input = React.createClass({
         instance._mergeDataAttrs(inputProps);
 
         return (
-            <div className={wrapperClass}>
+            <div
+                className={wrapperClass}
+                onFocus={instance.handleContainerFocus}
+                style={props.style}
+                tabIndex={props.tabIndex} >
                 {label}
                 <div className={MAIN_CLASS_PREFIX+"inputbox"}>
                     {element.call(this, inputProps)}
@@ -450,7 +547,6 @@ const Input = React.createClass({
      * @since 0.2.0
      */
     _mergeDataAttrs(inputProps) {
-        let dataAttrs = {};
         const props = this.props,
              keys = Object.keys(props);
 
