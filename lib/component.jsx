@@ -14,6 +14,8 @@
  * @since 0.0.1
 */
 
+require("itsa-dom");
+
 const React = require("react"),
     PropTypes = React.PropTypes,
     ReactDom = require("react-dom"),
@@ -317,7 +319,7 @@ const Input = React.createClass({
         const props = this.props;
         if (!props.readOnly && !props.disabled) {
             node = this._inputNode;
-            node.itsa_focus(null, null, transitionTime);
+            node.itsa_focus && node.itsa_focus(null, null, transitionTime);
             if (node.setSelectionRange) {
                 length = node.value.length;
                 node.setSelectionRange(length, length);

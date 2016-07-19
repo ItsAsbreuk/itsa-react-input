@@ -1,6 +1,6 @@
 {
   "name": "itsa-react-input",
-  "version": "15.0.16",
+  "version": "15.0.18",
   "description": "Beautiful functional input-element for react",
   "author": [
     {
@@ -53,9 +53,9 @@
     "file-loader": "^0.8.5",
     "istanbul": "^0.3.0",
     "itsa-jsext": "^1.3.0",
-    "itsa-react-checkbox": "^15.2.15",
-    "itsa-react-maskedinput": "^15.0.16",
-    "itsa-react-textarea": "^15.0.14",
+    "itsa-react-checkbox": "^15.2.16",
+    "itsa-react-maskedinput": "^15.0.17",
+    "itsa-react-textarea": "^15.0.15",
     "jsdom": "^7.2.2",
     "jsdom-global": "^1.6.1",
     "jshint": "^2.5.5",
