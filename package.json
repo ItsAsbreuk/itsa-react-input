@@ -1,6 +1,6 @@
 {
   "name": "itsa-react-input",
-  "version": "15.0.18",
+  "version": "15.0.20",
   "description": "Beautiful functional input-element for react",
   "author": [
     {
@@ -32,7 +32,7 @@
     "lib": "./lib"
   },
   "dependencies": {
-    "itsa-dom": "^1.1.9",
+    "itsa-dom": "^1.1.11",
     "itsa-utils": "^1.1.0"
   },
   "peerDependencies": {

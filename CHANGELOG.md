@@ -1,3 +1,6 @@
+#version 15.0.19
+Accepted any type for `value` and reverted into a string automatically
+
 #version 15.0.4
 
 Added prop onKeyEnter

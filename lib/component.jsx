@@ -253,7 +253,7 @@ const Input = React.createClass({
          * @type String
          * @since 0.0.1
         */
-        value: PropTypes.string
+        // not specifying --> may be anything
     },
 
     /**
@@ -294,7 +294,20 @@ const Input = React.createClass({
     },
 
     /**
-     * Gets the Component"s internal state. Note, that the this is NOT Redux"s state.
+     * Gets the Component's default props.
+     *
+     * @method getDefaultProps
+     * @return Object the Component's default props
+     * @since 0.0.1
+     */
+    getDefaultProps() {
+        return {
+            value: ""
+        };
+    },
+
+    /**
+     * Gets the Component's internal state. Note, that the this is NOT Redux"s state.
      *
      * @method getInitialState
      * @return Object the Component internal initial state
@@ -466,7 +479,7 @@ const Input = React.createClass({
         const instance = this,
             props = instance.props,
             element = props.element || instance.element,
-            value = props.value || "",
+            value = String(props.value),
             type = props.type || "text",
             readOnly = props.readOnly || false,
             disabled = props.disabled || false,
