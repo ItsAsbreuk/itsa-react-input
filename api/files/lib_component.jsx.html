@@ -97,245 +97,37 @@
  * @since 0.0.1
 */
 
+require(&quot;itsa-dom&quot;);
+
 const React = require(&quot;react&quot;),
-    PropTypes = React.PropTypes,
+    PropTypes = require(&quot;prop-types&quot;),
     ReactDom = require(&quot;react-dom&quot;),
     later = require(&quot;itsa-utils&quot;).later,
     MAIN_CLASS = &quot;itsa-input&quot;,
     MAIN_CLASS_PREFIX = MAIN_CLASS+&quot;-&quot;,
-    FORM_ELEMENT_CLASS_SPACES = &quot; itsa-formelement&quot;,
+    FORM_ELEMENT_CLASS_SPACED = &quot; itsa-formelement&quot;,
     SPACED_MAIN_CLASS_PREFIX = &quot; &quot;+MAIN_CLASS_PREFIX,
     ELEMENT = &quot;element&quot;;
 
-const Input = React.createClass({
-
-    propTypes: {
-        /**
-         * Whether to autofocus the Component.
-         *
-         * @property autoFocus
-         * @type Boolean
-         * @since 0.0.1
-        */
-        autoFocus: PropTypes.bool,
-
-        /**
-         * The class that should be set on the element
-         *
-         * @property className
-         * @type String
-         * @since 0.0.1
-        */
-        className: PropTypes.string,
-
-        /**
-         * The class that should be set on the underlying input-element
-         *
-         * @property classNameInput
-         * @type String
-         * @since 0.0.1
-        */
-        classNameInput: PropTypes.string,
-
-        /**
-         * The error-message that appears when the element is wrong validated.
-         *
-         * @property errorMsg
-         * @type String
-         * @since 0.0.1
-        */
-        errorMsg: PropTypes.string,
-
-        /**
-         * Whether the component is disabled
-         *
-         * @property disabled
-         * @type Boolean
-         * @since 0.0.1
-        */
-        disabled: PropTypes.bool,
-
-        /**
-         * Whether the parent-form has been validated.
-         * This value is needed to determine if the validate-status should be set.
-         *
-         * @property formValidated
-         * @type Boolean
-         * @since 0.0.1
-        */
-        formValidated: PropTypes.bool,
-
-        /**
-         * The text that should appear when the element is wrong validated.
-         *
-         * @property helpText
-         * @type String
-         * @since 0.0.1
-        */
-        helpText: PropTypes.string,
-
-        /**
-         * The &#x60;id&#x60; of the element.
-         *
-         * @property id
-         * @type String
-         * @since 0.0.1
-        */
-        id: PropTypes.string,
-
-        /**
-         * Whether to mark the Component when successfully validated.
-         *
-         * @property markValidated
-         * @type Boolean
-         * @since 0.0.1
-        */
-        markValidated: PropTypes.bool,
-
-        /**
-         * Whether the Component should show an validate-reclamation (star)
-         *
-         * @property markValidated
-         * @type Boolean
-         * @since 0.0.1
-        */
-        markRequired: PropTypes.bool,
-
-        /**
-         * The &#x60;name&#x60; for the element.
-         *
-         * @property name
-         * @type String
-         * @since 0.0.1
-        */
-        name: PropTypes.string,
-
-        /**
-         * The &#x60;onBlur&#x60; function, when happening on the DOM-Element.
-         *
-         * @property onBlur
-         * @type Function
-         * @since 0.1.0
-        */
-        onBlur: PropTypes.func,
-
-        /**
-         * The &#x60;onChange&#x60; function, which should update the &#x60;state&#x60;.
-         *
-         * @property onChange
-         * @type Function
-         * @since 0.0.1
-        */
-        onChange: PropTypes.func.isRequired,
-
-        /**
-         * The &#x60;onClick&#x60; function, when happening on the DOM-Element.
-         *
-         * @property onClick
-         * @type Function
-         * @since 0.0.1
-        */
-        onClick: PropTypes.func,
-
-        /**
-         * The &#x60;onFocus&#x60; function, when happening on the DOM-Element.
-         *
-         * @property onFocus
-         * @type Function
-         * @since 0.1.0
-        */
-        onFocus: PropTypes.func,
-
-        /**
-         * The &#x60;onKeyDown&#x60; function, when happening on the DOM-Element.
-         *
-         * @property onKeyDown
-         * @type Function
-         * @since 0.1.0
-        */
-        onKeyDown: PropTypes.func,
-
-        /**
-         * The &#x60;onKeyEnter&#x60; function, when the enter-key is pressed.
-         *
-         * @property onKeyEnter
-         * @type Function
-         * @since 0.1.0
-        */
-        onKeyEnter: PropTypes.func,
-
-        /**
-         * The &#x60;onKeyPress&#x60; function, when happening on the DOM-Element.
-         *
-         * @property onKeyPress
-         * @type Function
-         * @since 0.1.0
-        */
-        onKeyPress: PropTypes.func,
-
-        /**
-         * The &#x60;onKeyUp&#x60; function, when happening on the DOM-Element.
-         *
-         * @property onKeyUp
-         * @type Function
-         * @since 0.1.0
-        */
-        onKeyUp: PropTypes.func,
-
-        /**
-         * The &#x60;placeholder&#x60; for the element.
-         *
-         * @property placeholder
-         * @type String
-         * @since 0.0.1
-        */
-        placeholder: PropTypes.string,
-
-        /**
-         * Inline style
-         *
-         * @property style
-         * @type object
-         * @since 0.0.1
-        */
-        style: PropTypes.object,
-
-        /**
-         * The &#x60;type&#x60; of the input-element.
-         *
-         * @property type
-         * @type String
-         * @since 0.0.1
-        */
-        type: PropTypes.string,
-
-        /**
-         * The tabindex of the Component.
-         *
-         * @property type
-         * @type Number
-         * @since 0.0.1
-        */
-        tabIndex: PropTypes.number,
-
-        /**
-         * Whether the property is validated right.
-         *
-         * @property validated
-         * @type Boolean
-         * @since 0.0.1
-        */
-        validated: PropTypes.bool,
-
-        /**
-         * The &#x60;value&#x60; of the input-element.
-         *
-         * @property value
-         * @type String
-         * @since 0.0.1
-        */
-        value: PropTypes.string
-    },
+class Input extends React.Component {
+    constructor(props) {
+        super(props);
+        const instance = this;
+        instance.state = {
+            focussed: !!props.autoFocus
+        };
+        instance.element = instance.element.bind(instance);
+        instance.focus = instance.focus.bind(instance);
+        instance.handleBlur = instance.handleBlur.bind(instance);
+        instance.handleChange = instance.handleChange.bind(instance);
+        instance.handleClick = instance.handleClick.bind(instance);
+        instance.handleContainerFocus = instance.handleContainerFocus.bind(instance);
+        instance.handleFocus = instance.handleFocus.bind(instance);
+        instance.handleKeyDown = instance.handleKeyDown.bind(instance);
+        instance.handleKeyPress = instance.handleKeyPress.bind(instance);
+        instance.handleKeyUp = instance.handleKeyUp.bind(instance);
+        instance._mergeDataAttrs = instance._mergeDataAttrs.bind(instance);
+    }
 
     /**
      * componentDidMount will call &#x60;this.activatePlaces()&#x60;;
@@ -350,7 +142,7 @@ const Input = React.createClass({
         if (instance.props.autoFocus) {
             instance._focusLater = later(() =&gt; instance.focus(), 50);
         }
-    },
+    }
 
     /**
      * componentWilUnmount does some cleanup.
@@ -360,7 +152,7 @@ const Input = React.createClass({
      */
     componentWillUnmount() {
         this._focusLater &amp;&amp; this._focusLater.cancel();
-    },
+    }
 
     /**
      * Returns the rendered React-Element that serves as the source dom-element
@@ -372,10 +164,10 @@ const Input = React.createClass({
      */
     element(props) {
         return (&lt;input {...props} /&gt;);
-    },
+    }
 
     /**
-     * Gets the Component&quot;s internal state. Note, that the this is NOT Redux&quot;s state.
+     * Gets the Component&#x27;s internal state. Note, that the this is NOT Redux&quot;s state.
      *
      * @method getInitialState
      * @return Object the Component internal initial state
@@ -385,28 +177,29 @@ const Input = React.createClass({
         return {
             focussed: !!this.props.autoFocus
         };
-    },
+    }
 
     /**
      * Sets the focus on the Component.
      *
      * @method focus
+     * @param [transitionTime] {Number} transition-time to focus the element into the view
      * @chainable
      * @since 0.0.1
      */
-    focus() {
+    focus(transitionTime) {
         let node, length;
         const props = this.props;
         if (!props.readOnly &amp;&amp; !props.disabled) {
             node = this._inputNode;
-            node.focus();
+            node.itsa_focus &amp;&amp; node.itsa_focus(null, null, transitionTime);
             if (node.setSelectionRange) {
                 length = node.value.length;
                 node.setSelectionRange(length, length);
             }
         }
         return this;
-    },
+    }
 
     /**
      * The method that is called whenever the input-Element gets blurred.
@@ -425,7 +218,7 @@ const Input = React.createClass({
             focussed: false
         });
         props.onBlur &amp;&amp; props.onBlur(e);
-    },
+    }
 
     /**
      * The method that is called whenever the input-Element changes its value.
@@ -442,7 +235,7 @@ const Input = React.createClass({
             instance.changed = true;
             props.onChange(e);
         }
-    },
+    }
 
     /**
      * The method that is called whenever the input-Element gets clicked.
@@ -456,7 +249,7 @@ const Input = React.createClass({
         if (!props.readOnly &amp;&amp; !props.disabled &amp;&amp; props.onClick) {
             props.onClick(e);
         }
-    },
+    }
 
     /**
      * Callback that sets the focus to the descendent element by calling &#x60;focus()&#x60;
@@ -467,7 +260,7 @@ const Input = React.createClass({
      */
     handleContainerFocus(e) {
         (e.target===e.currentTarget) &amp;&amp; this.focus();
-    },
+    }
 
     /**
      * The method that is called whenever the input-Element gets the focus.
@@ -487,7 +280,7 @@ const Input = React.createClass({
             });
             props.onFocus &amp;&amp; props.onFocus(e);
         }
-    },
+    }
 
 
     /**
@@ -502,7 +295,7 @@ const Input = React.createClass({
         if (!props.readOnly &amp;&amp; !props.disabled &amp;&amp; props.onKeyDown) {
             props.onKeyDown(e);
         }
-    },
+    }
 
     /**
      * The method that is called whenever the input-Element recieves a keyPress.
@@ -519,7 +312,7 @@ const Input = React.createClass({
             }
             props.onKeyPress &amp;&amp; props.onKeyPress(e);
         }
-    },
+    }
 
     /**
      * The method that is called whenever the input-Element recieves a keyUp.
@@ -530,7 +323,7 @@ const Input = React.createClass({
      */
     handleKeyUp(e) {
         this.props.onKeyUp &amp;&amp; this.props.onKeyUp(e);
-    },
+    }
 
     /**
      * React render-method --&gt; renderes the Component.
@@ -540,13 +333,13 @@ const Input = React.createClass({
      * @since 0.0.1
      */
     render() {
-        let wrapperClass = MAIN_CLASS+FORM_ELEMENT_CLASS_SPACES,
+        let wrapperClass = MAIN_CLASS+FORM_ELEMENT_CLASS_SPACED,
             inputClass = MAIN_CLASS_PREFIX+ELEMENT,
             label, errorMsg, help, inputProps, ariaRequired;
         const instance = this,
             props = instance.props,
             element = props.element || instance.element,
-            value = props.value || &quot;&quot;,
+            value = String(props.value),
             type = props.type || &quot;text&quot;,
             readOnly = props.readOnly || false,
             disabled = props.disabled || false,
@@ -596,7 +389,6 @@ const Input = React.createClass({
             placeholder: props.placeholder,
             role: &quot;textbox&quot;,
             readOnly,
-            tabIndex: props.tabIndex || 1,
             type,
             value
         };
@@ -608,7 +400,8 @@ const Input = React.createClass({
             &lt;div
                 className={wrapperClass}
                 onFocus={instance.handleContainerFocus}
-                style={props.style} &gt;
+                style={props.style}
+                tabIndex={props.tabIndex} &gt;
                 {label}
                 &lt;div className={MAIN_CLASS_PREFIX+&quot;inputbox&quot;}&gt;
                     {element.call(this, inputProps)}
@@ -617,7 +410,7 @@ const Input = React.createClass({
                 {help}
             &lt;/div&gt;
         );
-    },
+    }
 
     /**
      * Merges the &#x60;data-*&#x60; attributes from props into the object
@@ -636,8 +429,239 @@ const Input = React.createClass({
             (key.substr(0,5).toLowerCase()===&quot;data-&quot;) &amp;&amp; (inputProps[key]=props[key]);
         });
     }
+}
 
-});
+Input.propTypes = {
+    /**
+     * Whether to autofocus the Component.
+     *
+     * @property autoFocus
+     * @type Boolean
+     * @since 0.0.1
+    */
+    autoFocus: PropTypes.bool,
+
+    /**
+     * The class that should be set on the element
+     *
+     * @property className
+     * @type String
+     * @since 0.0.1
+    */
+    className: PropTypes.string,
+
+    /**
+     * The class that should be set on the underlying input-element
+     *
+     * @property classNameInput
+     * @type String
+     * @since 0.0.1
+    */
+    classNameInput: PropTypes.string,
+
+    /**
+     * The error-message that appears when the element is wrong validated.
+     *
+     * @property errorMsg
+     * @type String
+     * @since 0.0.1
+    */
+    errorMsg: PropTypes.string,
+
+    /**
+     * Whether the component is disabled
+     *
+     * @property disabled
+     * @type Boolean
+     * @since 0.0.1
+    */
+    disabled: PropTypes.bool,
+
+    /**
+     * Whether the parent-form has been validated.
+     * This value is needed to determine if the validate-status should be set.
+     *
+     * @property formValidated
+     * @type Boolean
+     * @since 0.0.1
+    */
+    formValidated: PropTypes.bool,
+
+    /**
+     * The text that should appear when the element is wrong validated.
+     *
+     * @property helpText
+     * @type String
+     * @since 0.0.1
+    */
+    helpText: PropTypes.string,
+
+    /**
+     * The &#x60;id&#x60; of the element.
+     *
+     * @property id
+     * @type String
+     * @since 0.0.1
+    */
+    id: PropTypes.string,
+
+    /**
+     * Whether to mark the Component when successfully validated.
+     *
+     * @property markValidated
+     * @type Boolean
+     * @since 0.0.1
+    */
+    markValidated: PropTypes.bool,
+
+    /**
+     * Whether the Component should show an validate-reclamation (star)
+     *
+     * @property markValidated
+     * @type Boolean
+     * @since 0.0.1
+    */
+    markRequired: PropTypes.bool,
+
+    /**
+     * The &#x60;name&#x60; for the element.
+     *
+     * @property name
+     * @type String
+     * @since 0.0.1
+    */
+    name: PropTypes.string,
+
+    /**
+     * The &#x60;onBlur&#x60; function, when happening on the DOM-Element.
+     *
+     * @property onBlur
+     * @type Function
+     * @since 0.1.0
+    */
+    onBlur: PropTypes.func,
+
+    /**
+     * The &#x60;onChange&#x60; function, which should update the &#x60;state&#x60;.
+     *
+     * @property onChange
+     * @type Function
+     * @since 0.0.1
+    */
+    onChange: PropTypes.func.isRequired,
+
+    /**
+     * The &#x60;onClick&#x60; function, when happening on the DOM-Element.
+     *
+     * @property onClick
+     * @type Function
+     * @since 0.0.1
+    */
+    onClick: PropTypes.func,
+
+    /**
+     * The &#x60;onFocus&#x60; function, when happening on the DOM-Element.
+     *
+     * @property onFocus
+     * @type Function
+     * @since 0.1.0
+    */
+    onFocus: PropTypes.func,
+
+    /**
+     * The &#x60;onKeyDown&#x60; function, when happening on the DOM-Element.
+     *
+     * @property onKeyDown
+     * @type Function
+     * @since 0.1.0
+    */
+    onKeyDown: PropTypes.func,
+
+    /**
+     * The &#x60;onKeyEnter&#x60; function, when the enter-key is pressed.
+     *
+     * @property onKeyEnter
+     * @type Function
+     * @since 0.1.0
+    */
+    onKeyEnter: PropTypes.func,
+
+    /**
+     * The &#x60;onKeyPress&#x60; function, when happening on the DOM-Element.
+     *
+     * @property onKeyPress
+     * @type Function
+     * @since 0.1.0
+    */
+    onKeyPress: PropTypes.func,
+
+    /**
+     * The &#x60;onKeyUp&#x60; function, when happening on the DOM-Element.
+     *
+     * @property onKeyUp
+     * @type Function
+     * @since 0.1.0
+    */
+    onKeyUp: PropTypes.func,
+
+    /**
+     * The &#x60;placeholder&#x60; for the element.
+     *
+     * @property placeholder
+     * @type String
+     * @since 0.0.1
+    */
+    placeholder: PropTypes.string,
+
+    /**
+     * Inline style
+     *
+     * @property style
+     * @type object
+     * @since 0.0.1
+    */
+    style: PropTypes.object,
+
+    /**
+     * The &#x60;type&#x60; of the input-element.
+     *
+     * @property type
+     * @type String
+     * @since 0.0.1
+    */
+    type: PropTypes.string,
+
+    /**
+     * The tabindex of the Component.
+     *
+     * @property type
+     * @type Number
+     * @since 0.0.1
+    */
+    tabIndex: PropTypes.number,
+
+    /**
+     * Whether the property is validated right.
+     *
+     * @property validated
+     * @type Boolean
+     * @since 0.0.1
+    */
+    validated: PropTypes.bool,
+
+    /**
+     * The &#x60;value&#x60; of the input-element.
+     *
+     * @property value
+     * @type String
+     * @since 0.0.1
+    */
+    // not specifying --&gt; may be anything
+};
+
+Input.defaultProps = {
+    value: &quot;&quot;
+};
 
 module.exports = Input;
 

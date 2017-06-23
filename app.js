@@ -7,35 +7,40 @@ import "itsa-jsext/lib/string";
 import "itsa-react-checkbox/css/component.scss";
 import "./css/component.scss";
 import "./css/purecss-component.scss";
-import "itsa-react-textarea/css/component.scss";
 
 const React = require("react"),
     ReactDOM = require("react-dom"),
     Input = require("./lib/component-styled.jsx"),
-    MaskedInput = require("itsa-react-maskedinput"),
+    // MaskedInput = require("itsa-react-maskedinput"),
     Checkbox = require("itsa-react-checkbox"),
-    Textarea = require("itsa-react-textarea"),
+    // Textarea = require("itsa-react-textarea"),
     REG_EXP_PHONE = /^\(\d{0,3}\) \d{0,3}\-\d{0,4}$/;
 
 
 /*******************************************************
  * Custom form-Component
  *******************************************************/
-const MyForm = React.createClass({
+class MyForm extends React.Component {
+    constructor(props) {
+        super(props);
+        const instance = this;
+        instance.state = {
+            formValid: false,
+            formValidated: false
+        };
+        instance.focusUnvalidated = instance.focusUnvalidated.bind(instance);
+        instance.formValid = instance.formValid.bind(instance);
+        instance.handleSubmit = instance.handleSubmit.bind(instance);
+    }
 
     focusUnvalidated() {
         const instance = this;
         const validated = instance.props.validated;
-        console.info('instance.refs', instance.refs);
-        console.info(instance);
         if (!validated.name) {
             instance.refs.name.focus();
         }
         else if (!validated.email) {
             instance.refs.email.focus();
-        }
-        else if (!validated.phone) {
-            instance.refs.phone.focus();
         }
         else if (!validated.password) {
             instance.refs.password.focus();
@@ -43,20 +48,12 @@ const MyForm = React.createClass({
         else if (!validated.termsAccepted) {
             instance.refs.terms.focus();
         }
-    },
+    }
 
     formValid() {
         const validated = this.props.validated;
-        return validated.name && validated.email && validated.phone  && validated.password && validated.termsAccepted;
-    },
-
-    getInitialState() {
-        return {
-            formValid: false,
-            formValidated: false
-        };
-    },
-
+        return validated.name && validated.email && validated.password && validated.termsAccepted;
+    }
 
     handleSubmit(e) {
         const formValid = this.formValid();
@@ -69,7 +66,7 @@ const MyForm = React.createClass({
             formValid,
             target: this
         });
-    },
+    }
 
     render() {
         let formClass = "pure-form pure-form-stacked";
@@ -115,20 +112,6 @@ const MyForm = React.createClass({
                         tabIndex={2}
                         validated={props.validated.email}
                         value={props.email} />
-                    <MaskedInput
-                        className="pure-input-1"
-                        errorMsg="Phone number format: (555) 555-5555"
-                        formValidated={formValidated}
-                        helpText="format: (555) 555-5555"
-                        markRequired={true}
-                        markValidated={true}
-                        mask="(111) 111-1111"
-                        onChange={props.onChangePhone}
-                        placeholder="Phone"
-                        ref="phone"
-                        tabIndex={4}
-                        validated={props.validated.phone}
-                        value={props.phone} />
                     <Input
                         className="pure-input-1"
                         errorMsg="Use at least 5 characters"
@@ -142,13 +125,6 @@ const MyForm = React.createClass({
                         type="password"
                         validated={props.validated.password}
                         value={props.password} />
-                    <Textarea
-                        className="pure-input-1 last"
-                        onChange={props.onChangeComment}
-                        placeholder="Comment"
-                        ref="comment"
-                        tabIndex={6}
-                        value={props.comment} />
                     <Checkbox
                         checked={props.termsAccepted}
                         formValidated={formValidated}
@@ -174,7 +150,7 @@ const MyForm = React.createClass({
         );
     }
 
-});
+}
 
 
 /*******************************************************
@@ -190,14 +166,6 @@ const handleChangeEmail = (e) => {
 
 const handleChangePassword = (e) => {
     redefineProps('password', e.target.value);
-};
-
-const handleChangePhone = (e) => {
-    redefineProps('phone', e.target.value);
-};
-
-const handleChangeComment = (e) => {
-    redefineProps('comment', e.target.value);
 };
 
 const handleSubmit = (e) => {
@@ -265,14 +233,10 @@ let props = {
     name: '',
     email: '',
     password: '',
-    comment: '',
-    phone: '',
     termsAccepted: false,
     onChangeName: handleChangeName,
     onChangeEmail: handleChangeEmail,
     onChangePassword: handleChangePassword,
-    onChangePhone: handleChangePhone,
-    onChangeComment: handleChangeComment,
     onSubmit: handleSubmit,
     onTermsAccepted: handleTermsAccepted,
     validated: {},
