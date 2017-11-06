@@ -54,6 +54,7 @@ describe("React Component", function () {
                   onKeyUp={function noRefCheck() {}}
                   placeholder={undefined}
                   readOnly={false}
+                  ref={function noRefCheck() {}}
                   role="textbox"
                   type="text"
                   value=""
@@ -91,6 +92,7 @@ describe("React Component", function () {
                   onKeyPress={function noRefCheck() {}}
                   onKeyUp={function noRefCheck() {}}
                   placeholder={undefined}
+                  ref={function noRefCheck() {}}
                   role="textbox"
                   readOnly={false}
                   type="text"
@@ -129,6 +131,7 @@ describe("React Component", function () {
                   onKeyPress={function noRefCheck() {}}
                   onKeyUp={function noRefCheck() {}}
                   placeholder={undefined}
+                  ref={function noRefCheck() {}}
                   role="textbox"
                   readOnly={false}
                   type="password"
@@ -178,6 +181,7 @@ describe("React Component", function () {
                   onKeyPress={function noRefCheck() {}}
                   onKeyUp={function noRefCheck() {}}
                   placeholder="the placeholder"
+                  ref={function noRefCheck() {}}
                   role="textbox"
                   readOnly={false}
                   type="date"
@@ -239,6 +243,7 @@ describe("React Component", function () {
                   onKeyPress={function noRefCheck() {}}
                   onKeyUp={function noRefCheck() {}}
                   placeholder={undefined}
+                  ref={function noRefCheck() {}}
                   role="textbox"
                   readOnly={false}
                   type="text"
@@ -284,6 +289,7 @@ describe("React Component", function () {
                   onKeyPress={function noRefCheck() {}}
                   onKeyUp={function noRefCheck() {}}
                   placeholder={undefined}
+                  ref={function noRefCheck() {}}
                   role="textbox"
                   readOnly={false}
                   type="text"
