@@ -65,7 +65,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 64,
+            "line": 63,
             "description": "componentWilUnmount does some cleanup.",
             "itemtype": "method",
             "name": "componentWillUnmount",
@@ -75,7 +75,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 74,
+            "line": 73,
             "description": "Returns the rendered React-Element that serves as the source dom-element",
             "itemtype": "method",
             "name": "element",
@@ -95,20 +95,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 86,
-            "description": "Gets the Component's internal state. Note, that the this is NOT Redux\"s state.",
-            "itemtype": "method",
-            "name": "getInitialState",
-            "return": {
-                "description": "Object the Component internal initial state"
-            },
-            "since": "0.0.1",
-            "class": "Input",
-            "module": "itsa-react-input"
-        },
-        {
-            "file": "lib/component.jsx",
-            "line": 99,
+            "line": 85,
             "description": "Sets the focus on the Component.",
             "itemtype": "method",
             "name": "focus",
@@ -127,7 +114,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 121,
+            "line": 107,
             "description": "The method that is called whenever the input-Element gets blurred.\nIt will change its internal state, so that the css looks right and\nalso any validation-messages appear.",
             "itemtype": "method",
             "name": "handleBlur",
@@ -144,7 +131,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 140,
+            "line": 126,
             "description": "The method that is called whenever the input-Element changes its value.\nWill update the Redux-store (signupuser.homeaddress);",
             "itemtype": "method",
             "name": "handleChange",
@@ -161,7 +148,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 157,
+            "line": 143,
             "description": "The method that is called whenever the input-Element gets clicked.",
             "itemtype": "method",
             "name": "handleClick",
@@ -178,7 +165,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 171,
+            "line": 157,
             "description": "Callback that sets the focus to the descendent element by calling `focus()`",
             "itemtype": "method",
             "name": "handleContainerFocus",
@@ -195,7 +182,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 182,
+            "line": 168,
             "description": "The method that is called whenever the input-Element gets the focus.\nIt will change its internal state, so that the css looks right and\nalso any validation-messages disappear.",
             "itemtype": "method",
             "name": "handleFocus",
@@ -212,7 +199,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 203,
+            "line": 189,
             "description": "The method that is called whenever the input-Element recieves a keyDown.",
             "itemtype": "method",
             "name": "handleKeyDown",
@@ -229,7 +216,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 217,
+            "line": 203,
             "description": "The method that is called whenever the input-Element recieves a keyPress.",
             "itemtype": "method",
             "name": "handleKeyPress",
@@ -246,7 +233,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 234,
+            "line": 220,
             "description": "The method that is called whenever the input-Element recieves a keyUp.",
             "itemtype": "method",
             "name": "handleKeyUp",
@@ -263,7 +250,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 245,
+            "line": 231,
             "description": "React render-method --> renderes the Component.",
             "itemtype": "method",
             "name": "render",
@@ -276,7 +263,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 332,
+            "line": 319,
             "description": "Merges the `data-*` attributes from props into the object",
             "itemtype": "method",
             "name": "_mergeDataAttrs",
@@ -298,7 +285,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 352,
+            "line": 339,
             "description": "Whether to autofocus the Component.",
             "itemtype": "property",
             "name": "autoFocus",
@@ -309,7 +296,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 361,
+            "line": 348,
             "description": "The class that should be set on the element",
             "itemtype": "property",
             "name": "className",
@@ -320,7 +307,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 370,
+            "line": 357,
             "description": "The class that should be set on the underlying input-element",
             "itemtype": "property",
             "name": "classNameInput",
@@ -331,7 +318,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 379,
+            "line": 366,
             "description": "The error-message that appears when the element is wrong validated.",
             "itemtype": "property",
             "name": "errorMsg",
@@ -342,7 +329,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 388,
+            "line": 375,
             "description": "Whether the component is disabled",
             "itemtype": "property",
             "name": "disabled",
@@ -353,7 +340,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 397,
+            "line": 384,
             "description": "Whether the parent-form has been validated.\nThis value is needed to determine if the validate-status should be set.",
             "itemtype": "property",
             "name": "formValidated",
@@ -364,7 +351,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 407,
+            "line": 394,
             "description": "The text that should appear when the element is wrong validated.",
             "itemtype": "property",
             "name": "helpText",
@@ -375,7 +362,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 416,
+            "line": 403,
             "description": "The `id` of the element.",
             "itemtype": "property",
             "name": "id",
@@ -386,7 +373,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 425,
+            "line": 412,
             "description": "Whether to mark the Component when successfully validated.",
             "itemtype": "property",
             "name": "markValidated",
@@ -397,7 +384,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 434,
+            "line": 421,
             "description": "Whether the Component should show an validate-reclamation (star)",
             "itemtype": "property",
             "name": "markValidated",
@@ -408,7 +395,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 443,
+            "line": 430,
             "description": "The `name` for the element.",
             "itemtype": "property",
             "name": "name",
@@ -419,7 +406,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 452,
+            "line": 439,
             "description": "The `onBlur` function, when happening on the DOM-Element.",
             "itemtype": "property",
             "name": "onBlur",
@@ -430,7 +417,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 461,
+            "line": 448,
             "description": "The `onChange` function, which should update the `state`.",
             "itemtype": "property",
             "name": "onChange",
@@ -441,7 +428,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 470,
+            "line": 457,
             "description": "The `onClick` function, when happening on the DOM-Element.",
             "itemtype": "property",
             "name": "onClick",
@@ -452,7 +439,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 479,
+            "line": 466,
             "description": "The `onFocus` function, when happening on the DOM-Element.",
             "itemtype": "property",
             "name": "onFocus",
@@ -463,7 +450,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 488,
+            "line": 475,
             "description": "The `onKeyDown` function, when happening on the DOM-Element.",
             "itemtype": "property",
             "name": "onKeyDown",
@@ -474,7 +461,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 497,
+            "line": 484,
             "description": "The `onKeyEnter` function, when the enter-key is pressed.",
             "itemtype": "property",
             "name": "onKeyEnter",
@@ -485,7 +472,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 506,
+            "line": 493,
             "description": "The `onKeyPress` function, when happening on the DOM-Element.",
             "itemtype": "property",
             "name": "onKeyPress",
@@ -496,7 +483,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 515,
+            "line": 502,
             "description": "The `onKeyUp` function, when happening on the DOM-Element.",
             "itemtype": "property",
             "name": "onKeyUp",
@@ -507,7 +494,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 524,
+            "line": 511,
             "description": "The `placeholder` for the element.",
             "itemtype": "property",
             "name": "placeholder",
@@ -518,7 +505,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 533,
+            "line": 520,
             "description": "Inline style",
             "itemtype": "property",
             "name": "style",
@@ -529,7 +516,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 542,
+            "line": 529,
             "description": "The `type` of the input-element.",
             "itemtype": "property",
             "name": "type",
@@ -540,7 +527,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 551,
+            "line": 538,
             "description": "The tabindex of the Component.",
             "itemtype": "property",
             "name": "type",
@@ -551,7 +538,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 560,
+            "line": 547,
             "description": "Whether the property is validated right.",
             "itemtype": "property",
             "name": "validated",
@@ -562,7 +549,7 @@
         },
         {
             "file": "lib/component.jsx",
-            "line": 569,
+            "line": 556,
             "description": "The `value` of the input-element.",
             "itemtype": "property",
             "name": "value",

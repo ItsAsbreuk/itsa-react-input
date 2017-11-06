@@ -1,5 +1,4 @@
 .pure-form {
-
     .itsa-input-error-text {
         right: 0.6em;
     }
@@ -37,11 +36,9 @@
             border-color: #ccc;
         }
     }
-
 }
 
-@media only screen and (max-width : 480px) {
-
+@media only screen and (max-width: 480px) {
     .pure-form .itsa-input {
         margin-bottom: 0.3em;
         display: block;
@@ -50,5 +47,4 @@
     .pure-group .itsa-input {
         margin-bottom: 0;
     }
-
 }

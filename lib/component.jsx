@@ -33,7 +33,7 @@ class Input extends React.Component {
         instance.state = {
             focussed: !!props.autoFocus
         };
-        instance.element = instance.element.bind(instance);
+        instance.getDefinedComponent = instance.getDefinedComponent.bind(instance);
         instance.focus = instance.focus.bind(instance);
         instance.handleBlur = instance.handleBlur.bind(instance);
         instance.handleChange = instance.handleChange.bind(instance);
@@ -53,9 +53,8 @@ class Input extends React.Component {
      * @since 0.0.1
      */
     componentDidMount() {
-        const instance = this,
-              domNode = ReactDom.findDOMNode(instance);
-        instance._inputNode = domNode.querySelector("."+MAIN_CLASS_PREFIX+ELEMENT);
+        const instance = this;
+        instance._inputNode = instance._domNode.querySelector("."+MAIN_CLASS_PREFIX+ELEMENT);
         if (instance.props.autoFocus) {
             instance._focusLater = later(() => instance.focus(), 50);
         }
@@ -69,31 +68,6 @@ class Input extends React.Component {
      */
     componentWillUnmount() {
         this._focusLater && this._focusLater.cancel();
-    }
-
-    /**
-     * Returns the rendered React-Element that serves as the source dom-element
-     *
-     * @method element
-     * @param props {Object} props to be passed through to the Component
-     * @return ReactComponent
-     * @since 0.0.4
-     */
-    element(props) {
-        return (<input {...props} />);
-    }
-
-    /**
-     * Gets the Component's internal state. Note, that the this is NOT Redux"s state.
-     *
-     * @method getInitialState
-     * @return Object the Component internal initial state
-     * @since 0.0.1
-     */
-    getInitialState() {
-        return {
-            focussed: !!this.props.autoFocus
-        };
     }
 
     /**
@@ -239,7 +213,14 @@ class Input extends React.Component {
      * @since 0.1.0
      */
     handleKeyUp(e) {
-        this.props.onKeyUp && this.props.onKeyUp(e);
+        const props = this.props;
+        if (!props.readOnly && !props.disabled && props.onKeyUp) {
+            props.onKeyUp(e);
+        }
+    }
+
+    getDefinedComponent() {
+
     }
 
     /**
@@ -252,11 +233,11 @@ class Input extends React.Component {
     render() {
         let wrapperClass = MAIN_CLASS+FORM_ELEMENT_CLASS_SPACED,
             inputClass = MAIN_CLASS_PREFIX+ELEMENT,
-            label, errorMsg, help, inputProps, ariaRequired;
+            label, errorMsg, help, inputProps, ariaRequired, element;
         const instance = this,
             props = instance.props,
-            element = props.element || instance.element,
             value = String(props.value),
+            Component = instance.getDefinedComponent(!!value),
             type = props.type || "text",
             readOnly = props.readOnly || false,
             disabled = props.disabled || false,
@@ -304,8 +285,9 @@ class Input extends React.Component {
             onKeyPress: instance.handleKeyPress,
             onKeyUp: instance.handleKeyUp,
             placeholder: props.placeholder,
-            role: "textbox",
             readOnly,
+            ref: function(inst) {instance._inputElement = inst},
+            role: "textbox",
             type,
             value
         };
@@ -313,15 +295,22 @@ class Input extends React.Component {
         // merge all data-props:
         instance._mergeDataAttrs(inputProps);
 
+        if (!Component) {
+            element = (<input {...inputProps} />)
+        }
+        else {
+            element = (<Component {...inputProps} />);
+        }
         return (
             <div
                 className={wrapperClass}
                 onFocus={instance.handleContainerFocus}
+                ref={node => instance._domNode = node}
                 style={props.style}
                 tabIndex={props.tabIndex} >
                 {label}
                 <div className={MAIN_CLASS_PREFIX+"inputbox"}>
-                    {element.call(this, inputProps)}
+                    {element}
                     {errorMsg}
                 </div>
                 {help}

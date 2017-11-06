@@ -32,6 +32,7 @@ describe("React Component", function () {
         const expected = (
             <div className="itsa-input itsa-formelement"
               onFocus={function noRefCheck() {}}
+              ref={function noRefCheck() {}}
               style={undefined}
               tabIndex={undefined}>
               <div className="itsa-input-inputbox">
@@ -69,6 +70,7 @@ describe("React Component", function () {
         const expected = (
             <div className="itsa-input itsa-formelement"
               onFocus={function noRefCheck() {}}
+              ref={function noRefCheck() {}}
               style={undefined}
               tabIndex={undefined}>
               <div className="itsa-input-inputbox">
@@ -106,6 +108,7 @@ describe("React Component", function () {
         const expected = (
             <div className="itsa-input itsa-formelement"
               onFocus={function noRefCheck() {}}
+              ref={function noRefCheck() {}}
               style={undefined}
               tabIndex={undefined}>
               <div className="itsa-input-inputbox">
@@ -154,6 +157,7 @@ describe("React Component", function () {
         const expected = (
             <div className="itsa-input itsa-formelement itsa-input-required"
               onFocus={function noRefCheck() {}}
+              ref={function noRefCheck() {}}
               style={undefined}
               tabIndex={3}>
               <div className="itsa-input-inputbox">
@@ -214,6 +218,7 @@ describe("React Component", function () {
         const expected = (
             <div className="itsa-input itsa-formelement"
               onFocus={function noRefCheck() {}}
+              ref={function noRefCheck() {}}
               style={undefined}
               tabIndex={undefined}>
               <div className="itsa-input-inputbox">
@@ -258,6 +263,7 @@ describe("React Component", function () {
         const expected = (
             <div className="itsa-input itsa-formelement itsa-input-error"
               onFocus={function noRefCheck() {}}
+              ref={function noRefCheck() {}}
               style={undefined}
               tabIndex={undefined}>
               <div className="itsa-input-inputbox">

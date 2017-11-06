@@ -136,9 +136,8 @@ class Input extends React.Component {
      * @since 0.0.1
      */
     componentDidMount() {
-        const instance = this,
-              domNode = ReactDom.findDOMNode(instance);
-        instance._inputNode = domNode.querySelector(&quot;.&quot;+MAIN_CLASS_PREFIX+ELEMENT);
+        const instance = this;
+        instance._inputNode = instance._domNode.querySelector(&quot;.&quot;+MAIN_CLASS_PREFIX+ELEMENT);
         if (instance.props.autoFocus) {
             instance._focusLater = later(() =&gt; instance.focus(), 50);
         }
@@ -164,19 +163,6 @@ class Input extends React.Component {
      */
     element(props) {
         return (&lt;input {...props} /&gt;);
-    }
-
-    /**
-     * Gets the Component&#x27;s internal state. Note, that the this is NOT Redux&quot;s state.
-     *
-     * @method getInitialState
-     * @return Object the Component internal initial state
-     * @since 0.0.1
-     */
-    getInitialState() {
-        return {
-            focussed: !!this.props.autoFocus
-        };
     }
 
     /**
@@ -400,6 +386,7 @@ class Input extends React.Component {
             &lt;div
                 className={wrapperClass}
                 onFocus={instance.handleContainerFocus}
+                ref={node =&gt; instance._domNode = node}
                 style={props.style}
                 tabIndex={props.tabIndex} &gt;
                 {label}

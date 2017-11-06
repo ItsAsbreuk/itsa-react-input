@@ -20,24 +20,28 @@ $color-placeholder: #CCC;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
     }
+
     input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
         color: $color-placeholder;
     }
+
     input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
         color: $color-placeholder;
-        opacity:  1;
+        opacity: 1;
     }
+
     input::-moz-placeholder { /* Mozilla Firefox 19+ */
         color: $color-placeholder;
-        opacity:  1;
+        opacity: 1;
     }
+
     input:-ms-input-placeholder { /* Internet Explorer 10-11 */
         color: $color-placeholder;
     }
+
     input:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
         color: $color-placeholder;
     }
-
 }
 
 .itsa-input-required::after {
